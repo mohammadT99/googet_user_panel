@@ -1,5 +1,13 @@
 .sidebar__item {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: flex-start;
-    padding-right:5px ;
+    align-items: center;
+    // padding-right:5px ;
+    width: 100%;
+    gap: 20px;
+    .navlink {
+        display:flex;
+        justify-content: flex-start;
+    }
 }
