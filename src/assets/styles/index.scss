@@ -1,0 +1,16 @@
+// ======================= varibes and utils and colors ===== //
+@import "./utils/variabels.scss";
+@import "./utils/utiles.scss";
+// thems 
+@import "./theme/dark.scss";
+@import "./theme/light.scss";
+
+//  ==================== Sections  =========== //
+@import "./sections/form.scss" ;
+@import "./sections/chart.scss";
+@import "./sections/tabs.scss";
+
+// ==================== commons ================ //
+@import "./common/reasponsive.scss" ;
+@import "./common/fonts.scss";
+@import "./common/common.scss"
