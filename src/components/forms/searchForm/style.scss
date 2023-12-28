@@ -1,0 +1,19 @@
+.search  {
+    padding: 8px 10px;
+    background-color: var(--withe);
+    border-radius: 10px;
+    width: 455px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 15px;
+    input {
+        // display: none;
+        outline: none;
+    }
+    svg {
+        vertical-align: middle;
+    }
+}

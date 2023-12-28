@@ -1,0 +1,16 @@
+.wallets {
+    padding: 6px 10px;
+    border: 1px solid var(--muted-2) ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .wallets__inventory {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+}

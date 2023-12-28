@@ -1,0 +1,13 @@
+.breadcrumbs {
+    
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+
+.active-brad {
+    // color: var(--primary);
+    span {
+        display: none;
+    }
+}

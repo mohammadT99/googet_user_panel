@@ -1,6 +1,6 @@
 .sidebar {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
     padding: 20px;
     background-color: var(--bg);
     border-radius: 10px;
@@ -8,8 +8,29 @@
     flex-direction: column;
     // justify-content: center;
     align-items:center;
+    z-index: 0;
     .logo {
        padding-top:20px;
         width: 150px;
+    }
+}
+
+.sidebar__content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar__logout {
+    margin-top: 70px;
+    margin-left: 85px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom:8px ;
+    gap: 10px;
+    &:hover {
+        color: var(--primary);
     }
 }
