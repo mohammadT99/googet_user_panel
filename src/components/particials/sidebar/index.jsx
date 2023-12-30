@@ -18,7 +18,7 @@ import SidebarItem from "../../sidebarItem";
 import { space } from "postcss/lib/list";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({type = 'panel' }) => {
   const sidebarItem = [
     {
       title: "داشبورد",
@@ -48,7 +48,7 @@ const Sidebar = () => {
 
   return (
     <React.Fragment>
-      <div className="main">
+      <div className={`main ${type}`}>
         <div className="sidebar  top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center ">
           <div className="text-2xl font-medium logo">
             <img src={Logo} alt="" />

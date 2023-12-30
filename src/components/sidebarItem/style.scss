@@ -29,3 +29,17 @@
     }
 }
 
+.sideabar_min {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    .sidebar__item {
+        margin-right: 0;
+        display: flex;
+
+    }
+
+   
+}

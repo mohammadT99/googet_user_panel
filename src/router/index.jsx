@@ -3,20 +3,27 @@ import PanelLayouts from "../layouts/panel";
 import Dashboard from "../pages/dashborad";
 import { Login } from "iconsax-react";
 import LoginPage from "../pages/login";
+import Chat from "../layouts/chat";
 
 
 const router = createBrowserRouter ([
     {
         path : '/',
         index:false ,
-        element : <LoginPage />,
-        // element: <PanelLayouts/>,
+        // element : <LoginPage />,
+        element: <PanelLayouts/>,
+        
         children : [
             {
                 path:"/" ,
                 element : <Dashboard />,
+                // element : <Chat /> ,
             },
-        ]
+        ],
+    },
+    {
+        path : '/chat' , 
+        element : <Chat />
     }
 ]);
 

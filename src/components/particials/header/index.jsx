@@ -8,8 +8,9 @@ import SearchForm from "../../forms/searchForm";
 import Navbar from "../../navbar/inde";
 import NavbarSections from "../../navbar/inde";
 import LoginButton from "../../buttons/login-btn";
-import { Wallet } from "iconsax-react";
+import { Login, Wallet } from "iconsax-react";
 import Wallets from "../../buttons/walets";
+
 // import { Navbar } from 'react-daisyui';
 
 const Header = () => {
@@ -51,7 +52,7 @@ const Header = () => {
            </div>
             <div className="header__left">
             <Wallets  inventory ='2,0000' />
-            <LoginButton/>
+            <LoginButton type="header_login" icon={<Login/>}/>
             </div>
       </div>
     </>

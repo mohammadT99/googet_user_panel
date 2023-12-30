@@ -4,13 +4,13 @@ import { Login } from 'iconsax-react';
 import './style.scss' ;
 import React from 'react';
 
-const LoginButton = () => {
+const LoginButton = ({type = 'login' , icon }) => {
     return (
         <>  
-            <div className="boutton__login">
-                <Login />
+            <button className={type}>
+                <span>{icon}</span>
                 <span>ورود</span>
-            </div>
+            </button>
         </>
     )
 }

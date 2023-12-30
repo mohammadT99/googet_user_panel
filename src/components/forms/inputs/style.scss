@@ -4,6 +4,33 @@
     outline:  0 ;
     border: 1px solid var(--primary);
     border-radius: 10px;
+    
     width: 350px;
+    .icon {
+        display:none;
+    }
+    input {
+        width: 100%;
+        background: none;
+        outline: 0;
+    }
+}
+
+.chat_input {
+    width: 80%;
+    border: 1px solid var(--border-2);
+    border-radius: 10px;
+    padding: 8px 10px;
+    display: flex;
+
+    input {
+        width: 100%;
+        outline: 0;
+        padding: 0px 10px;
+        // color: var(--primary);
+        &::placeholder {
+            color: var(--primary);
+        }
+    }
     
 }
