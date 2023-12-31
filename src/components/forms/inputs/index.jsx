@@ -6,13 +6,14 @@ import './style.scss'
 import React from 'react' ;
 
 
-const Input = ({type = 'login' , text="متن خود را وارد کنید" }) => {
+const Input = ({type = 'login' , text="متن خود را وارد کنید" , icon  }) => {
     return (
         <>  
             <div className={type }>
-                <span className='icon'><FolderAdd  /> </span>
+                <button className='icon'><FolderAdd  /></button>
                 <input type="text" placeholder={text} />
                 <span className='icon'> <Send2 /> </span>
+                
             </div>
         </>
     )

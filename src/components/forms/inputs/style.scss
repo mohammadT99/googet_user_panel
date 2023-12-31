@@ -17,11 +17,13 @@
 }
 
 .chat_input {
-    width: 80%;
+    width: 100%;
     border: 1px solid var(--border-2);
     border-radius: 10px;
     padding: 8px 10px;
     display: flex;
+    align-items:center;
+    // justify-content: center;
 
     input {
         width: 100%;

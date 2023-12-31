@@ -12,7 +12,7 @@
     padding: 10px 20px;
     background-color:var(--bg);
     width: 350px;
-    margin-right: 50px;
+    // margin-right: 50px;
     border-radius: 10px;
     display: flex;
     flex-direction:row-reverse;
@@ -45,6 +45,11 @@
         flex-direction: column;
         gap: 0;
     }
+    .status {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
 }
 
 .message__box__user {
@@ -55,10 +60,29 @@
     align-items: flex-start;
     justify-content: flex-start;
     .content__body {
-        background-color:#E5E9FF;
+        background-color:#701db036;
         display: flex;
         flex-direction: row;
         border-radius: 10px 10px 0;
 
+    }
+    .text_box {
+        span {
+            color: var(--withe) !important;
+        }
+    }
+}
+
+
+//  ===================== esponsive ==================== //
+
+
+@media only screen and (max-width:957px) {
+    .chat__content__meassege {
+        display: none;
+    }
+
+    .content__body {
+        width: 280px;
     }
 }

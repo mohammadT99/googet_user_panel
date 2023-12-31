@@ -8,7 +8,7 @@ import SearchForm from "../../forms/searchForm";
 import Navbar from "../../navbar/inde";
 import NavbarSections from "../../navbar/inde";
 import LoginButton from "../../buttons/login-btn";
-import { Login, Wallet } from "iconsax-react";
+import { HambergerMenu, Login, Wallet } from "iconsax-react";
 import Wallets from "../../buttons/walets";
 
 // import { Navbar } from 'react-daisyui';
@@ -36,7 +36,11 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <img src={logo} width={70} alt="" />
+        <div className="resonsive__menue">
+        <HambergerMenu />
+        </div>
+        <img className="logo" src={logo} width={70} alt="" />
+
            <div className="navbar__header">
         <SearchForm />
            {headerItem.map((item , i) => {

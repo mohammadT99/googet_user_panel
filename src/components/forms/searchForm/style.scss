@@ -17,3 +17,24 @@
         vertical-align: middle;
     }
 }
+// ================= reasponsive ============== //
+
+@media only screen and ( max-width:1280px) {
+    .search {
+        width: 300px;
+    }
+}
+
+@media only screen and ( max-width:1024px) {
+    .search {
+        width: 250px;
+    }
+}
+
+@media only screen and ( max-width:991px) {
+    .search {
+        width: 250px;
+        display: none;
+    }
+}
+
