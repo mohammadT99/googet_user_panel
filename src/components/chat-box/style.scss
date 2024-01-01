@@ -86,3 +86,55 @@
         width: 280px;
     }
 }
+// responsive mobile  size
+
+@media only screen and (max-width: 450px)
+{
+    .content__body
+    {
+        width: 200px;
+    }
+}
+//width : 400
+@media only screen and (max-width: 400px)
+{
+    .content__body
+    {
+        width: 180px;
+    }
+}
+@media only screen and (max-width:350px )
+{
+  .content__body {
+      width: 170px;
+  }
+
+}
+//width :320px
+@media only screen and (max-width: 320px) {
+        .content__body {
+            width: 168px;
+        }
+}
+// width :300px
+@media only screen and (max-width: 300px) {
+        .content__body {
+            width: 140px;
+        }
+
+    .message__box__clint {
+        .content__body {
+            width: 150px;
+        }
+    }
+}
+//width : 270px
+@media only screen and (max-width:270px) {
+    .content__body {
+        width: 150px;
+    }
+}
+
+@media screen {
+
+}
