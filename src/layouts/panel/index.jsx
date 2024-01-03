@@ -6,6 +6,7 @@ import Header from "../../components/particials/header";
 import { Breadcrumbs } from "react-daisyui";
 import Breadcumbs from "../../components/bradcrumbs";
 import { Outlet } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const PanelLayouts = () => {
     const bread = [
@@ -30,6 +31,16 @@ const PanelLayouts = () => {
             active : 'active-brad'
         },
     ]
+    
+    // const user = Cookies.get('user') ;
+    // console.log(user);
+    // if(!user || Object.keys(user).length<=0) {
+    //   location.replace('/login');
+    // }else{
+    //   location.replace('/')
+    // }
+    
+
   return (
     <>
       <Header />

@@ -12,19 +12,25 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "daisyui": "^4.4.24",
+    "express": "^4.18.2",
     "iconsax-react": "^0.0.8",
+    "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "multer": "^1.4.5-lts.1",
     "react": "^18.2.0",
+    "react-axios": "^2.0.6",
     "react-daisyui": "^5.0.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-iconsax-vite": "^1.5.0",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.1",
+    "redux": "^5.0.1",
     "sass": "^1.69.5",
-    "sort-by": "^1.2.0"
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "sort-by": "^0.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

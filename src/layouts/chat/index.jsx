@@ -12,11 +12,18 @@ import Avatar from "../../components/avatar";
 import Input from "../../components/forms/inputs";
 import MessageBoxChat from "../../components/chat-box";
 import { useDropzone } from "react-dropzone";
+import { Socket, io } from "socket.io-client";
+import Cookies from "js-cookie";
+import { Form } from "react-daisyui";
+import { useDispatch } from "react-redux";
+// import { socketIo } from "../../store/socket";
 
 //  ================ components ============== //
 const Chat = (props) => {
-  
+  const dispatch = useDispatch()
+
   const [selectedImages, setSelectedImages] = useState([]);
+  const [input, setinput] = useState("");
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     acceptedFiles.forEach((file) => {
       setSelectedImages((prevState) => [...prevState, file]);
@@ -28,30 +35,17 @@ const Chat = (props) => {
     isDragActive,
     isDragAccept,
     isDragReject,
-  } = useDropzone({onDrop});
-  // const files = acceptedFiles.map((file) => (
+  } = useDropzone({ onDrop });
 
-  //   <li key={file.path}>
-  //     {file.path}
-  //   </li>
-
-  // ));
-
-  // remove image uploader 
+  // remove image uploader
   let removeImage = (key) => {
     // alert(key)
-    console.log('index: ' ,key);
-    console.log("88888888888",selectedImages)
-    const _images= selectedImages.filter((s , i) => i != key ) 
-    setSelectedImages(_images)
+    console.log("index: ", key);
+    console.log("88888888888", selectedImages);
+    const _images = selectedImages.filter((s, i) => i != key);
+    setSelectedImages(_images);
+  };
 
-    // setSelectedImages(image)
-  }
-  useEffect(() => {
-    
-  },[])
-
-  console.log(removeImage);
   return (
     <>
       <Header />
@@ -87,42 +81,61 @@ const Chat = (props) => {
               <MessageBoxChat type="message__box__clint" />
               <MessageBoxChat type="message__box__clint" />
               <MessageBoxChat type="message__box__user" />
-              
             </div>
-              <Input type="chat_input"/>
+            {/* <Input type="chat_input" /> */}
+            <form className="form-chat">
+              <input
+                type="text"
+                className="input-chat"
+                onChange={(e) => setinput(e.target.value)}
+              />
+              <button type="button">send</button>
+            </form>
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               {isDragActive ? (
                 <div className="">
-                  <span className="icon-upload"><LoginCurve /> اینجا رحا کنید</span>
+                  <span className="icon-upload">
+                    <LoginCurve /> اینجا رحا کنید
+                  </span>
                 </div>
               ) : (
                 <p>برای ارسال فایل درگ کنید</p>
               )}
             </div>
-            {
-              selectedImages.length >0 &&
+            {selectedImages.length > 0 && (
               <div className="box">
-                {selectedImages.map ((image , index) => {
+                {selectedImages.map((image, index) => {
                   return (
                     <div className="image">
-                    <img src={`${URL.createObjectURL(image)}`} width={80} key={index} alt="" />
+                      <img
+                        src={`${URL.createObjectURL(image)}`}
+                        width={80}
+                        key={index}
+                        alt=""
+                      />
                       <div className="image-box">
-                      <p>{image.path}</p>
-                      <p>{image.size}</p>
+                        <p>{image.path}</p>
+                        <p>{image.size}</p>
                       </div>
-                      <button onClick={() =>removeImage(index)}  className="btn-submit"> <Trash /></button>
+                      <button
+                        onClick={() => removeImage(index)}
+                        className="btn-submit"
+                      >
+                        {" "}
+                        <Trash />
+                      </button>
                     </div>
-                  )
+                  );
                 })}
                 <button className="btn-submit"> ارسال</button>
               </div>
-            }
+            )}
           </div>
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export default Chat;

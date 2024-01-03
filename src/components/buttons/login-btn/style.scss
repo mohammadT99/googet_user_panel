@@ -1,12 +1,11 @@
 .login-btn{
     padding: 8px 10px;
     border-radius: 10px;
-    // border: 1px solid var(--muted-2);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6px;
-   background-color: var(--primary);
+   background-color: var(--primary) !important;
     width: 350px;
     color: var(--withe);
 }
