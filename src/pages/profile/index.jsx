@@ -24,7 +24,7 @@ const Profile = () => {
   return (
     <>
       <div className="Profile__content">
-        <Avatar type="profile" size="100px" title={token.full_name} />
+        <Avatar type="profile" size="150px" title={token.full_name} />
         <div className="profile__content__forms">
           <form className="form-control">
             <label htmlFor="input-name">نام</label>
