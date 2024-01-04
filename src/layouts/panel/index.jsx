@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 // styles
 import "./style.scss";
 import Sidebar from "../../components/particials/sidebar";
 import Header from "../../components/particials/header";
 import { Breadcrumbs } from "react-daisyui";
 import Breadcumbs from "../../components/bradcrumbs";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const PanelLayouts = () => {
+
+  const navigate = useNavigate()
     const bread = [
         {
             title : "خانه"  ,
@@ -32,14 +34,17 @@ const PanelLayouts = () => {
         },
     ]
     
+   
     // const user = Cookies.get('user') ;
-    // console.log(user);
-    // if(!user || Object.keys(user).length<=0) {
-    //   location.replace('/login');
-    // }else{
-    //   location.replace('/')
-    // }
+   useEffect(() => {
+    const tocken = Cookies.get('user') ;
+    if(tocken) {
+      navigate('/')
+    }else{
+      navigate('/login');
+    }
     
+   } ,[])
 
   return (
     <>

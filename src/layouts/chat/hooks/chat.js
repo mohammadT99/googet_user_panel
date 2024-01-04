@@ -1,36 +1,60 @@
-// imports 
-import Cookies from "js-cookie";
+// imports
+
+// import { Socket } from "socket.io";
 import { io } from "socket.io-client";
-import { Socket } from "socket.io-client";
-import socket from "../../../store/socket";
-import { Server } from "socket.io";
+import webSocket from "../../../../socket";
+import Cookies from "js-cookie";
+import { useState } from "react";
 
+// import webSocket from "../../../../socket";
 
+const useChat = () => {
+  // states
+  const [dataChat, setDataChat] = useState();
+  const [messageData, setMessageData] = useState("");
+  const socket = webSocket();
 
-export const  useChat = () => {
-
-   const socketChat = () => {
-    var t = Cookies.get("user") ;
-    t =JSON.parse(t)
-    const socket = io("http://192.168.1.129:9582/users" , {
-        secure:false ,
-        extraHeaders :{
-            token : t
-        }
+  // hook  chat
+  const socketClient = (message) => {
+    // connetction in server
+    var t = Cookies.get("user");
+    t = JSON.parse(t);
+    const socket = io("http://192.168.1.129:9582/users", {
+      secure: false,
+      extraHeaders: {
+        token: t,
+      },
     });
 
-    socket.on("connect" , (data) => console.log("connected" , data))
-    
-   }
+    // receive  data from server
+    socket.on("conversation/list", (data) => {
+      setDataChat(data);
+      console.log(" lll", data.data);
+      localStorage.setItem('data' , JSON.stringify(data.data) )
+    });
 
-   const sendMessage = (message) => {
-    
-   }
+    // send data form server
+    socket.emit("conversation/list", (data) => {
+      console.log(data);
+    });
+  };
 
-   return {
-    socketChat ,
-    sendMessage
-   }
-}
+  //   resive data form chat page
+  const chatMessage = (meassage) => {
+    console.log(meassage)
+    if (meassage) {
+      setMessageData(meassage);
+        console.log( 'message :', messageData)
+    } else {
+      console.log("not");
+    }
+  };
 
-export default useChat ;
+  // reaturn method function
+  return {
+    socketClient,
+    chatMessage,
+  };
+};
+
+export default useChat;

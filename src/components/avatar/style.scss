@@ -23,6 +23,17 @@
 .chat__content__body__chat {
 
 }
+
+.profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    h1 {
+        font-weight: 500;
+    }
+}
+
 //  ======================== reasponsive  ========== //
 
 @media only screen and (max-width:300px ) {

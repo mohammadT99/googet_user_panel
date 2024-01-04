@@ -17,8 +17,23 @@ import Avatar from "../../avatar";
 import SidebarItem from "../../sidebarItem";
 import { space } from "postcss/lib/list";
 import { NavLink } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Sidebar = ({type = 'panel' }) => {
+  //state
+  var _user = JSON.parse(Cookies.get("user"))
+  _user = _user.user
+
+  //functions 
+  const handleLogOut  = () =>  {
+    Cookies.remove("user");
+    if(!Cookies.get("user")) {
+      location.replace('/login');
+    }else{
+      console.log('not');
+    }
+  }
+  // console.log(_user);
   const sidebarItem = [
     {
       title: "داشبورد",
@@ -28,7 +43,7 @@ const Sidebar = ({type = 'panel' }) => {
     {
       title: "اطلاعات من",
       icon: <User />,
-      to: "/",
+      to: "/profile",
     },
     {
       title: "نظرات",
@@ -53,7 +68,7 @@ const Sidebar = ({type = 'panel' }) => {
           <div className="text-2xl font-medium logo">
             <img src={Logo} alt="" />
           </div>
-          <Avatar size="150px" type="user" />
+          <Avatar size="150px" type="user" title={_user.full_name} />
           <div className="sidebar__content">
             {sidebarItem.map((item, i) => {
               return (
@@ -66,7 +81,7 @@ const Sidebar = ({type = 'panel' }) => {
               );
             })}
           </div>
-          <NavLink to="/" className="sidebar__logout">
+          <NavLink to="/" onClick={handleLogOut} className="sidebar__logout">
           <span>
               <LogoutCurve />
             </span>

@@ -1,10 +1,12 @@
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import PanelLayouts from "../layouts/panel";
 import Dashboard from "../pages/dashborad";
 import { Check, Login } from "iconsax-react";
-import LoginPage from "../pages/auth/login"; 
+import LoginPage from "../pages/auth/login";
 import Chat from "../layouts/chat";
 import CheckCode from "../pages/auth/otp";
+import Profile from "../pages/profile";
 // import {AuthMiddleware} from "../middleware/auth";
 
 
@@ -18,12 +20,17 @@ const router = createBrowserRouter ([
             {
                 path:"/" ,
                 element : <Dashboard />,
-                // element : <Chat /> ,
+                // element : <Chat />
             },
+            {
+                path : "/profile" ,
+                index :true,
+                element : <Profile />,
+            }
         ],
     },
     {
-        path : '/chat' , 
+        path : '/chat' ,
         element : <Chat />
     },
     {

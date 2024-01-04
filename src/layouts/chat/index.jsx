@@ -1,6 +1,6 @@
 //  =================== style  ================ //
 
-import { Add, LoginCurve, More, SearchNormal1, Trash } from "iconsax-react";
+import { Add, CloudFog, LoginCurve, More, SearchNormal1, Trash } from "iconsax-react";
 import Header from "../../components/particials/header";
 import Sidebar from "../../components/particials/sidebar";
 import SideabarMin from "../../components/particials/sidebar/sidebar-min";
@@ -16,19 +16,26 @@ import { Socket, io } from "socket.io-client";
 import Cookies from "js-cookie";
 import { Form } from "react-daisyui";
 import { useDispatch } from "react-redux";
-// import { socketIo } from "../../store/socket";
+import useChat from "./hooks/chat";
+import webSocket from "../../../socket";
 
 //  ================ components ============== //
 const Chat = (props) => {
-  const dispatch = useDispatch()
 
+  // starts
   const [selectedImages, setSelectedImages] = useState([]);
   const [input, setinput] = useState("");
+  const {socketClient , chatMessage  } = useChat() ;
+  const [conversaction , setConversaction] = useState(JSON.parse(localStorage.getItem('data')))
+  console.log( 'hddfhdfd', conversaction.data);
+
+  // dropzone
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     acceptedFiles.forEach((file) => {
       setSelectedImages((prevState) => [...prevState, file]);
     });
   }, []);
+
   const {
     getRootProps,
     getInputProps,
@@ -39,12 +46,19 @@ const Chat = (props) => {
 
   // remove image uploader
   let removeImage = (key) => {
-    // alert(key)
-    console.log("index: ", key);
-    console.log("88888888888", selectedImages);
     const _images = selectedImages.filter((s, i) => i != key);
     setSelectedImages(_images);
   };
+
+// handlesubmit
+const handleSubmit = () => {
+  chatMessage(input);
+}
+
+  //  =================== use Effect ===============  //
+  useEffect ( () => {
+    socketClient()
+  } , [])
 
   return (
     <>
@@ -67,11 +81,12 @@ const Chat = (props) => {
               <button className="btn">همه پیام ها </button>
               <button className="btn"> جدید ترین ها</button>
             </div>
-            <CardChat type="card_chat" />
-            <CardChat type="card_chat" />
-            <CardChat type="card_chat" />
-            <CardChat type="card_chat" />
-            <CardChat type="card_chat" />
+            {conversaction.map((item , key) => {
+              return(
+                <CardChat type="card_chat" title={item.adviser_answer}  key={key}/>
+              )
+            })}
+
           </div>
           <div className="chat__content__body">
             <div className="chat__content__body__header">
@@ -89,7 +104,7 @@ const Chat = (props) => {
                 className="input-chat"
                 onChange={(e) => setinput(e.target.value)}
               />
-              <button type="button">send</button>
+              <button type="button" onClick={handleSubmit}>send</button>
             </form>
             <div {...getRootProps()}>
               <input {...getInputProps()} />
@@ -128,7 +143,7 @@ const Chat = (props) => {
                     </div>
                   );
                 })}
-                <button className="btn-submit"> ارسال</button>
+                <button  className="btn-submit"> ارسال</button>
               </div>
             )}
           </div>

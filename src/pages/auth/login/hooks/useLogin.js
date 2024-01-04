@@ -39,7 +39,7 @@ import { loginUser } from "../../../../store/user";
         })
         console.log(data)
         dispatch(loginUser(data));
-        // navigate('/')
+        navigate('/');
 
        }catch(e){
         console.log(e)

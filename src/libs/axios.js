@@ -1,11 +1,14 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
-const  REACT_USER_BASE_URL =' http://192.168.1.129:9582/api/user'
+const  REACT_USER_BASE_URL =' http://192.168.1.111:9582/api/user'
 const Api = axios.create({
   baseURL: REACT_USER_BASE_URL,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
+  
+
   },
 });
 
@@ -13,6 +16,9 @@ const Api = axios.create({
 Api.interceptors.request.use(
   function (config) {
     // Do something before request is sent
+    let _user = Cookies.get('user');
+    if(_user) _user = JSON.parse(_user);
+    if(_user?.token) config.headers.Authorization = `Bearer ${_user?.token} `;
     return config;
   },
   function (error) {

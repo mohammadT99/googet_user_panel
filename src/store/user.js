@@ -16,7 +16,7 @@ export const UserSlice = createSlice(
             loginUser : ( state, userData) => {
                 console.log('jjj');
                 state.user = userData.payload ;
-                Cookies.set("user" , JSON.stringify(userData.payload.data.token) , {expires :365})
+                Cookies.set("user" , JSON.stringify(userData.payload.data) , {expires :365})
             }
         }
     }

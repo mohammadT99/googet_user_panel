@@ -5,7 +5,7 @@ import './index.css'
 import "./assets/font/kalame/stylesheet.scss"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ 
     <App />
-  </React.StrictMode>,
+  
 )
