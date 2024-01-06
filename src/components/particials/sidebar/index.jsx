@@ -11,6 +11,7 @@ import {
   FolderFavorite,
   Clock,
   LogoutCurve,
+  Messages3,
 } from "iconsax-react";
 // ============== comopnents ========== //
 import Avatar from "../../avatar";
@@ -51,6 +52,13 @@ const Sidebar = ({type = 'panel' }) => {
       to: "/",
     },
     {
+      title :"چت",
+      icon : <Messages3 />,
+      to : '/chat' 
+
+
+    },
+    {
       title: "علاقه مندی ها",
       icon: <FolderFavorite />,
       to: "/",
@@ -58,6 +66,7 @@ const Sidebar = ({type = 'panel' }) => {
     {
       title: "سوابق بازدید",
       icon: <Clock />,
+      to : '/'
     },
   ];
 

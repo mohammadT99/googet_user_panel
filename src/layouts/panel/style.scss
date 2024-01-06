@@ -1,25 +1,27 @@
 .panel {
-    display: flex;
-    // flex-direction: row-reverse;
-    background-color: white;
-    
-    // margin-top:30px ;
+  display: flex;
+  // flex-direction: row-reverse;
+  background-color: red;
+
+  // margin-top:30px ;
+//   position: fixed;
 }
 
 .bradcrumb {
-    margin-top:10px ;
-    display: flex;
-    gap: 10px;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }
 .pannel__content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    margin-left: 20px;
-    .pannel__content__body {
-        background-color: var(--bg);
-        padding: 20px;
-        border-radius: 10px;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-left: 20px;
+//   position: fixed;
+  .pannel__content__body {
+    background-color: var(--bg);
+    padding: 20px;
+    border-radius: 10px;
+  }
 }

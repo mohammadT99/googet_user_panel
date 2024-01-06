@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const  REACT_USER_BASE_URL =' http://192.168.1.111:9582/api/user'
+const  REACT_USER_BASE_URL =' http://192.168.1.129:9582/api/user'
 const Api = axios.create({
   baseURL: REACT_USER_BASE_URL,
   headers: {

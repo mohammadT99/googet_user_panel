@@ -1,22 +1,42 @@
 // ====================  import styles and logo  ===================== //
-import Avatar from '../avatar';
-import './style.scss'
+import { NavLink, useSearchParams } from "react-router-dom";
+import Avatar from "../avatar";
+import "./style.scss";
 //  =============== imports  =============== //
 
-import React from "react";
+import React, { useState } from "react";
+import { useQueryParam } from "use-query-params";
 
-const CardChat = ({title = '' , message = 'سلام' , type =' active' , time="10:00"  , key }) => {
-    return (
-        <>
-        <div className="card__chat" key={key}>
-            <div className="card__hader">
-            <Avatar type='avatar_chat' size='40px' textsize='16px' title='سارا '  />
-            <div className="time text-orange-300">{time}</div>
-            </div>
-            <div className="messeges"><span className='text-orange-500 mx-2'>شما:</span>{message}</div>
+const CardChat = ({
+  title,
+  message,
+  type = " active",
+  time,
+  id,
+}) => {
+  const [searchParam, setSearchParam] = useSearchParams();
+  const addToguery = () => {
+    setSearchParam({ id: id});
+  };
+  return (
+    <>
+      <div onClick={addToguery} className="card__chat">
+        <div className="card__hader">
+          <Avatar
+            type="avatar_chat"
+            size="40px"
+            textsize="16px"
+            title={title}
+          />
+          <div className="time text-orange-300">{time}</div>
         </div>
-        </>
-    )
-}
+        <div className="messeges">
+          <span className="text-orange-500 mx-2">شما:</span>
+          {message}
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default CardChat ; 
+export default CardChat;
