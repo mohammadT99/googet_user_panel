@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview" 
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
@@ -16,6 +16,7 @@
     "iconsax-react": "^0.0.8",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
+    "lodash.debounce": "^4.0.8",
     "match-sorter": "^6.3.1",
     "multer": "^1.4.5-lts.1",
     "react": "^18.2.0",
@@ -31,6 +32,8 @@
     "socket.io": "^4.7.2",
     "socket.io-client": "^4.7.2",
     "sort-by": "^0.0.2",
+    "superagent": "^6.1.0",
+    "use-debounce": "^10.0.0",
     "use-query-params": "^2.2.1"
   },
   "devDependencies": {

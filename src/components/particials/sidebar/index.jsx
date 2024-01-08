@@ -22,8 +22,8 @@ import Cookies from "js-cookie";
 
 const Sidebar = ({type = 'panel' }) => {
   //state
-  var _user = JSON.parse(Cookies.get("user"))
-  _user = _user.user
+  // var _user = JSON.parse(Cookies.get("user"))
+  // _user = _user.user
 
   //functions 
   const handleLogOut  = () =>  {
@@ -77,7 +77,7 @@ const Sidebar = ({type = 'panel' }) => {
           <div className="text-2xl font-medium logo">
             <img src={Logo} alt="" />
           </div>
-          <Avatar size="150px" type="user" title={_user.full_name} />
+          <Avatar size="150px" type="user"  />
           <div className="sidebar__content">
             {sidebarItem.map((item, i) => {
               return (

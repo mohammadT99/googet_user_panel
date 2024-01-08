@@ -1,20 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Socket } from "socket.io-client";
+import Cookies from "js-cookie";
+import { Socket, io } from "socket.io-client";
+import { Manager } from "socket.io-client";
 
+export const SocketSlice = createSlice({
+  name: "socket",
+  initialState: {
+    socket: null,
+  },
 
- export const SocketSlice = createSlice(
-{
-    name : "socket" ,
-    initialState : {
-        socket: true ,
+  reducers: {
+    websocket: (state  ) => {
+        let t = Cookies.get("user")
+        t = JSON.parse(t)
+       const _socket= io("http://192.168.1.129:9582/users", {
+        secure: false,
+        extraHeaders: {
+          token: t.token,
+        },
+      });
+
+      _socket.on("error" , (data) => {
+        console.log(data)
+      });
+
+      _socket.on("connect" , () => {
+        console.log("connected")
+      })
+      state.socket = _socket ;
+
     },
-    reducers :{
-       
-    }
-}
-
-)
-
-
-export const { socketIo } = SocketSlice.actions ;
-export default SocketSlice.reducer ;
+  },
+});
+export const { websocket } = SocketSlice.actions;
+export default SocketSlice.reducer;

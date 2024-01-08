@@ -36,6 +36,9 @@ Api.interceptors.response.use(
     return response;
   },
   function (error) {
+    if(error?.response?.status === 401 ) {
+      location.replace('/login')
+    } 
     // alert("err when sending request");
 
     // Any status codes that falls outside the range of 2xx cause this function to trigger
