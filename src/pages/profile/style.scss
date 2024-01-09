@@ -1,47 +1,91 @@
 
 .profile__content__forms {
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     padding:30px;
-    border: 1px solid var(--bg-darken-1);
-    background-color: none;
-    justify-content: space-around;
-    // padding-bottom:20px;
-    // border: 1px solid var(--light-text);
+    border: 1px solid var(--light-3);
+    background-color:white;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
+    gap: 400px;
 }
 
 .form-control {
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap : 8px ;
-    
+    gap :32px  ;
 }
 
-.input-form {
-    outline:0;
-    background-color:var(--bg);
-    border: 1px solid var(--light-text);
-    border-radius: 10px;
-    padding: 8px 30px;
-    width: 350px;
-    &:focus {
-        border: 1px solid var(--primary);
+.input {
+    position: relative;
+    //background:var(--withe) ;
+    .label-input {
+        position:absolute;
+        top: -12px;
+        right: 20px;
+        padding: 0px 8px;
+        background: var(--withe);
+    }
+    .input-form {
+        outline:0;
+        //background-color:var(--bg);
+        border: 1px solid var(--light-text);
+        border-radius: 10px;
+        padding: 10px 30px;
+        width: 350px;
+
+        &:focus {
+            border: 1px solid var(--primary);
+        }
+
     }
 }
 
+.email {
+    width: 500px !important;
+}
+
+
+
 .btn-profile {
     margin-top: 30px;
-    margin-right: 115px;
-    padding: 10px 60px;
+    margin-right: 20px;
+    text-align: center;
+    padding: 10px 60px !important;
     border: 1px solid var(--primary);
     // width: 100%;
     border-radius: 10px;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     &:hover {
         background-color: var(--primary);
         color: var(--withe);
     }
 
+}
+
+.loader {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.avatar__box {
+    .input__avatr {
+        margin-top: 10px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        border: 1px solid var(--border-2);
+        border-radius: 10px;
+        input{
+            display: none;
+        }
+    }
 }

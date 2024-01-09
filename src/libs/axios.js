@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import {toast} from "react-toastify";
 
 const  REACT_USER_BASE_URL =' http://192.168.1.129:9582/api/user'
 const Api = axios.create({
@@ -23,7 +24,8 @@ Api.interceptors.request.use(
   },
   function (error) {
     // Do something with request error
-    alert("err");
+   toast.error('خطایی پیش امده است  لطفا مجددا تلاش نمایید.')
+      console.error(',wg kan')
     return Promise.reject(error);
   }
 );
@@ -31,14 +33,18 @@ Api.interceptors.request.use(
 // Add a response interceptor
 Api.interceptors.response.use(
   function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
+   if(response?.data?.message){
+    toast.success(response.data.message) ;
+       console.log('succ')
+   }
     return response;
   },
   function (error) {
     if(error?.response?.status === 401 ) {
       location.replace('/login')
-    } 
+    } else if (error?.response?.status === 422) {
+        toast.error(error.response.errors.message)
+    }
     // alert("err when sending request");
 
     // Any status codes that falls outside the range of 2xx cause this function to trigger
