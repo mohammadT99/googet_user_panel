@@ -161,7 +161,8 @@
   padding: 14px 30px;
   border: 2px dashed var(--border-2);
   width: max-content;
-  height: max-content;
+  //height: 400px;
+  //overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;

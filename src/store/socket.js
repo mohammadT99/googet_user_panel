@@ -13,7 +13,8 @@ export const SocketSlice = createSlice({
     websocket: (state  ) => {
         let t = Cookies.get("user")
         t = JSON.parse(t)
-       const _socket= io("http://192.168.1.129:9582/users", {
+        const ip = "http://192.168.1.129:9582/users" ;
+       const _socket= io(ip , {
         secure: false,
         extraHeaders: {
           token: t.token,

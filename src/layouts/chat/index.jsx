@@ -14,7 +14,7 @@ import {useDropzone} from "react-dropzone";
 import {useDispatch} from "react-redux";
 import Api from "../../libs/axios";
 import webSocket, {websocket} from "../../store/socket.js";
-import {useSearchParams} from "react-router-dom";
+import {useParams, useSearchParams} from "react-router-dom";
 
 import useChat from "./hooks/chat.js";
 import login from "../../pages/auth/login/index.jsx";
@@ -24,7 +24,11 @@ const Chat = () => {
     const [searchParam] = useSearchParams();
     const [selectedImages, setSelectedImages] = useState([]);
     const [input, setinput] = useState("");
+    const [ fileUrl , setFileUrl ] = useState('') ;
+    const [fileNmae , setFileName ] = useState('') ;
+    const [ fileSize , setFileSize ] = useState('') ;
     const [searchinput, setSearchinput] = useState();
+    const [uploadTextChat , setUploadTextChat ] = useState([]) ;
     const [conversaction, setConversaction] = useState([]);
     const [messageText, setMessageText] = useState([]);
     const [chatdiv, setChatdiv] = useState([]);
@@ -91,6 +95,27 @@ const Chat = () => {
     const  addmenu = () => {
        const conver =  document.getElementsByClassName('.chat__content__meassege ')
            conver.classList.add("chat__content__meassege__open ")
+    }
+
+    const handleUpload = async () => {
+        console.log('upload' , uploadTextChat ) ;
+        try {
+            const {data } = await Api.post('conversation-messages/upload' , {
+                    caption : uploadTextChat ,
+                    files : selectedImages[0] ,
+                key : searchParam.get("id")
+            } ,
+                {
+                    headers : {
+                        "Content-Type": "multipart/form-data",
+                    }
+                }
+                )
+            setMessageText((data) => [  ...messageText ,data.msg])
+
+        } catch (e) {
+            console.log(e)
+        }
     }
     
     //  =================== use Effect ===============  //
@@ -159,17 +184,20 @@ const Chat = () => {
                             onScroll={infiniteScroll}
                         >
                             {messageText.map((item, key) => {
+                                {console.log("itemitemitemitem",item)}
                                 return (<MessageBoxChat
                                         key={key}
-                                        type={`${item.adviser_answer ? "message__box__clint" : "message__box__user"}`}
+                                        classname={`${item.adviser_answer ? "message__box__clint" : "message__box__user"}`}
                                         messege={item.body}
+                                        type={item.type}
+                                        file={item.attachments}
                                     />);
                             })}
                         </div>
                         {/* <Input type="chat_input" /> */}
                         <form className="form-chat" onSubmit={handleSubmit}>
                             <div {...getRootProps()}>
-                                <input {...getInputProps()} />
+                                <input {...getInputProps()}   />
                                 {isDragActive ? (<div className="drop__zone__box">
                                         <AddSquare size={50} color="#ccc"/>
                                         فایل خود را اینجا قرار دهید
@@ -210,8 +238,9 @@ const Chat = () => {
                                         </div>);
                                 })}
                                 <input type="text" className="outline-0 border-1 bg-amber-50 box__upload__input "
-                                       placeholder={'متن خود را وارد کنید'}/>
-                                <button className="btn-submit"> ارسال</button>
+                                       name='caption'
+                                       placeholder={'متن خود را وارد کنید'} onChange={(e) =>setUploadTextChat(e.target.value)}/>
+                                <button className="btn-submit" onClick={handleUpload}> ارسال</button>
                             </div>)}
                     </div>
                 </div>
