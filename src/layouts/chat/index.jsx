@@ -73,7 +73,10 @@ const Chat = () => {
     const handleSubmit = async () => {
         console.log('xsssxssxsxs');
         sendmessage(input)
-        message()
+        websoket.on('conversation/new-message-sent' , (data) => {
+            console.log( 'assassaas', data)
+            setMessageText([...messageText , data])
+        })
         setinput("")
 
     };
@@ -100,7 +103,7 @@ const Chat = () => {
     const handleUpload = async () => {
         console.log('upload' , uploadTextChat ) ;
         try {
-            const {data } = await Api.post('conversation-messages/upload' , {
+            const {data} = await Api.post('conversation-messages/upload' , {
                     caption : uploadTextChat ,
                     files : selectedImages[0] ,
                 key : searchParam.get("id")
@@ -109,9 +112,11 @@ const Chat = () => {
                     headers : {
                         "Content-Type": "multipart/form-data",
                     }
-                }
-                )
-            setMessageText((data) => [  ...messageText ,data.msg])
+                } );
+            console.log(data)
+            setMessageText([...messageText , data.data.msg])
+            console.log(messageText);
+
 
         } catch (e) {
             console.log(e)
