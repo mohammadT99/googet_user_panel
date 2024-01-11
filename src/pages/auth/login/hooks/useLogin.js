@@ -6,6 +6,7 @@ import { render } from "react-dom";
 import { Check } from "iconsax-react";
 import { data } from "autoprefixer";
 import { loginUser } from "../../../../store/user";
+import Cookies from "js-cookie";
 
  export  function useLogin (props) {
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ import { loginUser } from "../../../../store/user";
     const [codeLogin  , setCodeLogin ] = useState('')
     const mobile = localStorage.getItem('code')
     const loginData = async (input ) => {
+        console.log('fdfdfdf')
         setinputData(input)
         try {
             const {data}  = await Api.post('/auth' , {
@@ -35,7 +37,8 @@ import { loginUser } from "../../../../store/user";
        try{
         const {data} =  await Api.post('/check' , {
             mobile :JSON.parse(mobile) ,
-            token :  code
+            token :  code ,
+            type : 'otp'
         })
         console.log(data)
         dispatch(loginUser(data));
@@ -47,12 +50,28 @@ import { loginUser } from "../../../../store/user";
        
        
     }
+
+    const password =  async(password) => {
+        try {
+            const {data} = await Api.post('/check' , {
+                mobile :JSON.parse(mobile) ,
+                password : password,
+                type  : 'password'
+            })
+            dispatch(loginUser(data));
+            if(Cookies.get('user')) {
+                navigate('/')
+            }
+        }catch(e) {
+            console.log(e)
+        }
+    }
    return {
     // setInput ,
     loginData ,
     check,
     inputData,
-
+    password
 
 
    }

@@ -15,8 +15,8 @@ export const UserSlice = createSlice(
         reducers : {
             loginUser : ( state, userData) => {
                 console.log('jjj');
-                state.user = userData.payload ;
-                Cookies.set("user" , JSON.stringify(userData.payload.data) , {expires :365})
+                state.user = userData ;
+                Cookies.set("user" , JSON.stringify(userData.payload) , {expires :365})
             }
         }
     }

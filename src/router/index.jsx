@@ -7,6 +7,7 @@ import LoginPage from "../pages/auth/login";
 import Chat from "../layouts/chat";
 import CheckCode from "../pages/auth/otp";
 import Profile from "../pages/profile";
+import Password from "../pages/auth/password";
 // import {AuthMiddleware} from "../middleware/auth";
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter ([
     {
         path : '/login/otp',
         element :<CheckCode />
+    },
+    {
+        path : 'login/password',
+        element :<Password />
     },
 ]);
 

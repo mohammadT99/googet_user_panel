@@ -43,7 +43,8 @@ Api.interceptors.response.use(
     if(error?.response?.status === 401 ) {
       location.replace('/login')
     } else if (error?.response?.status === 422) {
-        toast.error(error.response.errors.message)
+      console.log('sss')
+        toast.error(error.response.message)
     }
     // alert("err when sending request");
 
