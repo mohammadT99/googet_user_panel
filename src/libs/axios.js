@@ -41,7 +41,7 @@ Api.interceptors.response.use(
   },
   function (error) {
     if(error?.response?.status === 401 ) {
-      location.replace('/login')
+      location.replace('/')
     } else if (error?.response?.status === 422) {
       console.log('sss')
         toast.error(error.response.message)

@@ -24,6 +24,11 @@ import { useParams, useSearchParams } from "react-router-dom";
 import useChat from "./hooks/chat.js";
 import login from "../../pages/auth/login/index.jsx";
 import { ToastContainer } from "react-toastify";
+import { loginUser } from "../../store/user.js";
+import { checkUser } from "../../store/auth.js";
+import HeaderChat from "../../components/chat-box/components/header/index.jsx";
+import ConversactionList from "../../components/chat-box/components/coversection-list/index.jsx";
+import ContentChat from "../../components/chat-box/components/chat-content/index.jsx";
 //  ================ components ============== //
 const Chat = () => {
   // starts
@@ -39,7 +44,8 @@ const Chat = () => {
   const [messageText, setMessageText] = useState([]);
   const [chatdiv, setChatdiv] = useState([]);
   const dispatch = useDispatch();
-  const { sendmessage, websoket } = useChat();
+  const { sendmessage, websoket, scrollToButton } = useChat();
+  const [status, setStatus] = useState(0);
   const conversactionList = async () => {
     try {
       const { data } = await Api.get("/conversations");
@@ -72,17 +78,13 @@ const Chat = () => {
     if (chat.scrollTop === 0) {
       setPage(page + 1);
       // console.log("ssdsd " ,page);
-      console.log("=================>>1", messageText);
       const { data } = await Api.get(
         `/conversations/${searchParam.get("id")}?page=${page}`
       );
       if (data.data.rows <= 0) {
         setPage(page - 1);
-        console.log("not mohammad");
       } else {
-        // console.log('sdsdsd' , data.data.rows) ;
         setMessageText([...data.data.rows, ...messageText]);
-        console.log("=================>>2", messageText);
         chat.scrollTop(200);
       }
     }
@@ -100,16 +102,13 @@ const Chat = () => {
     setinput("");
   };
 
-  const serachfrom = () => {
-    setSearchinput(document.getElementsByClassName("input-search"));
-  };
-
   const message = async (page) => {
     // console.log( 'mohammad------------------->>', page);
     try {
       const { data } = await Api.get(
         `/conversations/${searchParam.get("id")}?page=1`
       );
+      setStatus(data.data.LSID);
       setMessageText(data.data.rows.reverse());
     } catch (e) {
       console.log(e);
@@ -117,23 +116,15 @@ const Chat = () => {
   };
 
   // addmenu
-  const addmenu = () => {
-    const conver = document.getElementsByClassName(".chat__content__meassege ");
-    conver.classList.add("chat__content__meassege__open ");
-  };
-
-  const array = JSON.stringify(selectedImages);
 
   const handleUpload = async () => {
-    console.log("upload", uploadTextChat);
-    console.log("====>>>>", array);
-
     const form = new FormData();
     selectedImages.forEach((f) => {
       form.append("files", f);
     });
 
     form.append("key", searchParam.get("id"));
+    form.append("caption", uploadTextChat);
 
     try {
       const { data } = await Api.post("conversation-messages/upload", form, {
@@ -149,12 +140,6 @@ const Chat = () => {
       console.log(e);
     }
   };
-
-  const scrollToButton = () => {
-    let div = document.getElementById("chat__content__body__chat");
-    div.scrollTop = div.scrollHeight;
-  };
-
   //  =================== use Effect ===============  //
   useEffect(() => {
     conversactionList();
@@ -163,88 +148,33 @@ const Chat = () => {
 
   useEffect(() => {
     dispatch(websocket());
+    dispatch(checkUser());
     setChatdiv(document.getElementsByClassName("chat__content__body__chat"));
     scrollToButton();
     message();
   }, []);
   return (
     <>
-     <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-            {/* Same as */}
-            <ToastContainer/>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
       <Header />
       <div className="chat">
-        َََ
         <div className="chat__content">
-          <div className="chat__content__meassege">
-            <div className="chat__content__meassege__header">
-              <h1 className="text-lg font-bold flex-nowrap">پیام ها</h1>
-              <div className="header__menue">
-                <button className="icon add">
-                  <Add />
-                </button>
-                <form className="form-search">
-                  <span className="icon" onClick={serachfrom}>
-                    <SearchNormal1 size="20" />
-                  </span>
-                  <input
-                    type="text"
-                    className={`${
-                      searchinput ? "input-search d-block" : "input-search"
-                    }`}
-                  />
-                </form>
-              </div>
-            </div>
-            <div className="chat__content__meassege__filter">
-              <button className="btn">همه پیام ها</button>
-              <button className="btn"> جدید ترین ها</button>
-            </div>
-            {Array.isArray(conversaction)
-              ? conversaction.map((item, key) => {
-                  {
-                    /* console.log(key); */
-                  }
-                  return (
-                    <div
-                      key={key}
-                      // onClick={activeBox(key)}
-
-                      className={`${
-                        searchParam.get("id") == item.c_key
-                          ? "link-card-active"
-                          : "link-card"
-                      }`}
-                    >
-                      <CardChat
-                        type="card_chat"
-                        title={item.shop_name}
-                        message={item.last_message}
-                        id={item.c_key}
-                      />
-                    </div>
-                  );
-                })
-              : "هیچ دیتایی یافت نشد...|"}
-          </div>
+          <ConversactionList conversaction={conversaction} />
           <div className="chat__content__body">
-            <div className="chat__content__body__header">
-              <Avatar type="avatar_chat" size="60px" title="سارا" />
-              <a className="menue__chat" onClick={addmenu}>
-                <AddSquare />
-              </a>
-            </div>
+            <ContentChat />
             <div
               className="chat__content__body__chat"
               id="chat__content__body__chat"
@@ -252,9 +182,6 @@ const Chat = () => {
             >
               {messageText.map((item, key) => {
                 {
-                  {
-                    /* console.log("itemitemitemitem", item); */
-                  }
                 }
                 return (
                   <MessageBoxChat
@@ -267,6 +194,7 @@ const Chat = () => {
                     messege={item.body}
                     type={item.type}
                     file={item.attachments}
+                    status={item.id <= status}
                   />
                 );
               })}
@@ -332,7 +260,11 @@ const Chat = () => {
                   placeholder={"متن خود را وارد کنید"}
                   onChange={(e) => setUploadTextChat(e.target.value)}
                 />
-                <button type="button" className="btn-submit" onClick={handleUpload}>
+                <button
+                  type="button"
+                  className="btn-submit"
+                  onClick={handleUpload}
+                >
                   ارسال
                 </button>
               </div>

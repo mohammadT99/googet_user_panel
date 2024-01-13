@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./style.scss";
 import { ToastContainer } from "react-toastify";
+import Input from "../../components/forms/inputs";
 
 const Profile = () => {
   // state
@@ -22,8 +23,14 @@ const Profile = () => {
   const [oldPass, setOldPass] = useState("");
   const [newPass, setNeawPass] = useState("");
 
+
+
+
   var token = JSON.parse(Cookies.get("user"));
   token = token.user;
+
+
+  // function  update data user 
   const user = async () => {
     try {
       const { data } = await Api.get("profile");
@@ -44,7 +51,7 @@ const Profile = () => {
     }
   };
   // console.log( 'userdata', userData) ;
-
+  // button  update data user
   const handleUpdate = async () => {
     try {
       setLoadingbtn(true);
@@ -55,6 +62,8 @@ const Profile = () => {
     }
   };
 
+
+  // handle image uploder in profile 
   const handleimagedubmit = async (e) => {
     console.log("dfdfdfdf");
     setImage(URL.createObjectURL(e.target.files[0]));
@@ -77,6 +86,8 @@ const Profile = () => {
     }
     handleUpdate();
   };
+
+//  function update  password  
 
   const handleUpdatePass = async () => {
     const {data} = await Api.post("profile/password" ,{

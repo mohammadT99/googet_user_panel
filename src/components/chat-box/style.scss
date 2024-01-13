@@ -72,11 +72,13 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  // width: max-content;
   .content__body {
     background-color: #701db036;
     display: flex;
     flex-direction: row;
     border-radius: 10px 10px 0;
+    width: max-content;
   }
   .text_box {
     span {
@@ -96,31 +98,36 @@
   padding: 20px;
   border-radius: 10px;
   gap: 12px;
-  width: 100%;
+  width: max-content;
+  
   .image__box {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     position: relative;
+    width: max-content;
     gap: 20px;
-    //transition: all 0.5s ease;
+    transition: all 0.5s ease;
 
     img {
-      width: 50px;
+      width: 70px;
       border-radius: 10px;
     }
     .show_image {
       position: absolute;
-      top: 5px;
-      right:5px ;
+      top: 20px;
+      right:20px ;
+      left: auto;
       background: var(--bg);
       border-radius: 100%;
       padding: 10px;
-      opacity: 70%;
+      opacity: 80%;
       display: none;
+     
 
     }
     &:hover {
+      transition: all 0.8s ease;
       .show_image {
         display: block;
 
@@ -132,11 +139,12 @@
 
 .show__image {
   position: absolute;
-  top: -100px;
-  right: 100px;
+  top: -200px;
+  right: 400px;
   background: var(--light-3);
-  width: 50vh;
-  height: 50vh;
+  width: 70vh;
+  height: max-content;
+  padding: 20px;
   //display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +152,7 @@
   display: none;
   transition: all 0.5s ease;
   img {
-    width: 50%;
+    width: 300px !important;
     border-radius: 10px;
   }
 }
