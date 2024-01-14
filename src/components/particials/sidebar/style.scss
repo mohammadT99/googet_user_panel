@@ -34,3 +34,43 @@
         color: var(--primary);
     }
 }
+
+.sidebar__content__min {
+    display: none;
+}
+
+
+@media only screen and (max-width:760px) {
+
+    .sidebar {
+        // padding: 10px !important;
+        width: 70px !important;
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        height:100vh;
+        overflow: hidden;
+    }
+    .sidebar__content {
+        display: none;
+    }
+    .sidebar__content__min {
+        margin-top: 60px;
+        display:flex ;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 20px;
+       
+    }
+
+    .sidebar__logout {
+        margin-left: auto;
+        margin-right: auto;
+        h1 {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.card__product {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-2);
+    max-width: max-content;
+    padding: 14px  ;
+    border-radius: 10px;
+    background: var(--withe);
+    transition: all 0.4s ease;
+   
+    .card__img {
+        width:150px;
+    }
+    .card__title {
+        width: 250px;
+        text-align: center;
+    }
+}

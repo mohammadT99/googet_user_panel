@@ -47,9 +47,9 @@ const Sidebar = ({type = 'panel' }) => {
       to: "/profile",
     },
     {
-      title: "نظرات",
+      title: "دیدگاه های من",
       icon: <Message2 />,
-      to: "/",
+      to: "/comments",
     },
     {
       title :"چت",
@@ -66,7 +66,7 @@ const Sidebar = ({type = 'panel' }) => {
     {
       title: "سوابق بازدید",
       icon: <Clock />,
-      to : '/'
+      to : '/recentvisit'
     },
   ];
 
@@ -81,8 +81,22 @@ const Sidebar = ({type = 'panel' }) => {
           <div className="sidebar__content">
             {sidebarItem.map((item, i) => {
               return (
-                <SidebarItem
+                <SidebarItem 
+                  // type=""
                   title={item.title}
+                  key={i}
+                  icon={item.icon}
+                  link={item.to}
+                />
+              );
+            })}
+          </div>
+          <div className="sidebar__content__min ">
+            {sidebarItem.map((item, i) => {
+              return (
+                <SidebarItem 
+                  type="sideabar_min"
+                  
                   key={i}
                   icon={item.icon}
                   link={item.to}

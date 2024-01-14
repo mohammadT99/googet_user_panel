@@ -1,0 +1,93 @@
+.card__comments{
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    border: 1px solid var(--border-3);
+    margin-top: 60px;
+    background-color: var(--bg);
+    width: 800px ;
+    // position: relative;
+    border-radius: 10px;
+    display: flex;
+    // justify-content: space-around;
+    .header__card {
+        position: relative;
+        justify-content: space-between;
+        display: flex;
+        justify-content: center;
+        .image__header {
+            position: inherit;
+            top: -43px;
+            right: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg);
+            padding: 2px 30px;
+            gap: 12px;
+
+
+            img {
+                width: 64px;
+                // border-radius: 50%;
+            }
+        }
+    }
+    .buttons__card {
+        position: inherit;
+        top:-40px;
+        left: 20px;
+        margin-left: 10px;
+        margin-right: 500px;
+        display: flex;
+        align-items: center;
+        background-color: var(--bg);
+        padding: 2px 14px;
+        gap:12px;
+        .status__card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary-muted);
+            padding: 8px 5px;
+            border-radius: 10px;
+            
+            
+        }
+        .line {
+            // padding: 1;
+            width: 30px;
+            height: 1px;
+            background: var(--border-3);
+        }
+        .more__card {
+            transform: rotate(90deg);
+            // padding: 8px;
+        }
+    }
+
+    .menu__content  {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        padding: 10px ;
+        // display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap:6px;
+        background-color: var(--withe);
+        border-radius: 10px;
+        display: none;
+        transition: all 0.6s ease;
+        
+    }
+}
+
+
+.d-flex {
+    display: flex !important;
+}
+
+
+
+

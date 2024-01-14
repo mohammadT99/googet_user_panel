@@ -8,6 +8,8 @@ import Chat from "../layouts/chat";
 import CheckCode from "../pages/auth/otp";
 import Profile from "../pages/profile";
 import Password from "../pages/auth/password";
+import Comments from "../pages/comments";
+import RecentVisit from "../pages/Recent-visits";
 // import {AuthMiddleware} from "../middleware/auth";
 
 
@@ -27,6 +29,14 @@ const router = createBrowserRouter ([
                 path : "/profile" ,
                 index :true,
                 element : <Profile />,
+            } ,
+            {
+                path : "/comments" ,
+                element : <Comments />
+            },
+            {
+                path : "/recentvisit" ,
+                element : <RecentVisit />
             }
         ],
     },
