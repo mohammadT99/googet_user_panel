@@ -36,7 +36,7 @@ const PanelLayouts = () => {
             to: "/",
             active: 'active-brad'
         },
-    ]
+    ];
 
 
     // const user = Cookies.get('user') ;
@@ -49,14 +49,17 @@ const PanelLayouts = () => {
             navigate('/login');
         }
 
-    }, [])
+    }, []);
 
 
     return (
         <>
             <Header/>
             <div className="panel">
+                <div className="sidebar-panel">
                 <Sidebar/>
+                </div>
+                
                 <div className="pannel__content">
                     <div className="bradcrumb">
                         {bread.map((item, i) => {

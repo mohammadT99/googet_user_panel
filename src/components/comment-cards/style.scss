@@ -90,4 +90,118 @@
 
 
 
+ // ============================ responsive ====================== //
+ @media only  screen and (max-width:1200px) {
+    .card__comments {
+        width: 600px;
+
+        .header__card  {
+            .image__header {
+                right: 106px;
+            }
+        }
+        .buttons__card {
+            left: 103px;
+        }
+    }
+ }
+
+ @media only screen and (max-width:780px) {
+    .card__comments {
+        width: 550px;
+
+        .header__card  {
+            .image__header {
+                right: 135px;
+            }
+        }
+        .buttons__card {
+            left: 125px;
+        }
+    }
+ }
+
+
+ @media only screen and (max-width:720px) {
+    .card__comments {
+        width: 500px;
+
+        .header__card  {
+            .image__header {
+                right: 155px;
+            }
+        }
+        .buttons__card {
+            left: 145px;
+        }
+    }
+ }
+
+
+ @media only screen and (max-width:640px) {
+    .card__comments {
+        width: 450px;
+
+        .header__card  {
+            .image__header {
+                right: 175px;
+            }
+        }
+        .buttons__card {
+            left: 165px;
+        }
+    }
+ }
+
+
+ @media only screen and (max-width:640px) {
+    .card__comments {
+        width: 400px;
+
+        .header__card  {
+            .image__header {
+                right: 210px;
+            }
+        }
+        .buttons__card {
+            left: 195px;
+        }
+    }
+ }
+
+
+ @media only screen and (max-width:500px) {
+    .card__comments {
+        width: 300px;
+
+        .header__card  {
+            .image__header {
+                right: 250px;
+            }
+        }
+        .buttons__card {
+            left: 240px;
+        }
+    }
+}
+
+
+@media only screen and (max-width:450px) {
+    .card__comments {
+        width: 280px;
+
+        .header__card  {
+            .image__header {
+                right: 250px;
+            }
+        }
+        .buttons__card {
+            left: 240px;
+        }
+    }
+}
+
+
+
+
 

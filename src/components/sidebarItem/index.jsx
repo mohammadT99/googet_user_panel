@@ -8,7 +8,8 @@ const SidebarItem = ({ type = "sidebar__navlink", title = "", key = "", icon , l
     <NavLink className={type}  to={link}>
       <div className="sidebar__item" key={key + 10}>
         <span className="sidebar__icon">{icon}</span>
-        {title}
+        <p className="title">{title}</p>
+        <span className="tooltiptext hidden">{title}</span>
       </div>
     </NavLink>
   );

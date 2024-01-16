@@ -10,6 +10,7 @@ import Profile from "../pages/profile";
 import Password from "../pages/auth/password";
 import Comments from "../pages/comments";
 import RecentVisit from "../pages/Recent-visits";
+import Interest from "../pages/interest";
 // import {AuthMiddleware} from "../middleware/auth";
 
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter ([
             {
                 path : "/recentvisit" ,
                 element : <RecentVisit />
+            },
+            {
+                path : "/interest" ,
+                element : <Interest />
             }
         ],
     },

@@ -20,20 +20,20 @@ import { space } from "postcss/lib/list";
 import { NavLink } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Sidebar = ({type = 'panel' }) => {
+const Sidebar = ({ type = "panel" }) => {
   //state
   // var _user = JSON.parse(Cookies.get("user"))
   // _user = _user.user
 
-  //functions 
-  const handleLogOut  = () =>  {
+  //functions
+  const handleLogOut = () => {
     Cookies.remove("user");
-    if(!Cookies.get("user")) {
-      location.replace('/login');
-    }else{
-      console.log('not');
+    if (!Cookies.get("user")) {
+      location.replace("/login");
+    } else {
+      console.log("not");
     }
-  }
+  };
   // console.log(_user);
   const sidebarItem = [
     {
@@ -52,36 +52,34 @@ const Sidebar = ({type = 'panel' }) => {
       to: "/comments",
     },
     {
-      title :"چت",
-      icon : <Messages3 />,
-      to : '/chat' 
-
-
+      title: "چت",
+      icon: <Messages3 />,
+      to: "/chat",
     },
     {
       title: "علاقه مندی ها",
       icon: <FolderFavorite />,
-      to: "/",
+      to: "/interest",
     },
     {
       title: "سوابق بازدید",
       icon: <Clock />,
-      to : '/recentvisit'
+      to: "/recentvisit",
     },
   ];
 
   return (
     <React.Fragment>
       <div className={`main ${type}`}>
-        <div className="sidebar  top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center ">
+        <div className="sidebar  top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center mt-8 ">
           <div className="text-2xl font-medium logo">
             <img src={Logo} alt="" />
           </div>
-          <Avatar size="150px" type="user"  />
+          <Avatar size="150px" type="user" />
           <div className="sidebar__content">
             {sidebarItem.map((item, i) => {
               return (
-                <SidebarItem 
+                <SidebarItem
                   // type=""
                   title={item.title}
                   key={i}
@@ -94,9 +92,9 @@ const Sidebar = ({type = 'panel' }) => {
           <div className="sidebar__content__min ">
             {sidebarItem.map((item, i) => {
               return (
-                <SidebarItem 
+                <SidebarItem
+                  title={item.title}
                   type="sideabar_min"
-                  
                   key={i}
                   icon={item.icon}
                   link={item.to}
@@ -105,7 +103,7 @@ const Sidebar = ({type = 'panel' }) => {
             })}
           </div>
           <NavLink to="/" onClick={handleLogOut} className="sidebar__logout">
-          <span>
+            <span>
               <LogoutCurve />
             </span>
             <h1 className="text-sm">خروج از حساب کاربری</h1>

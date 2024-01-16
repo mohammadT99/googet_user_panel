@@ -1,11 +1,12 @@
-import React from "react";
-import CardProduct from "../../components/product-card";
+import React from "react"; 
 import './style.scss'
+import CardProduct from "../../components/product-card";
 
-const RecentVisit = () => {
-  return (
-    <>
-      <div className="recent__visit__content">
+
+const Interest  = () => {
+    return (
+        <>  
+        <div className="recent__visit__content">
         <h1 className="flex items-center gap-3 text-lg font-semibold">
           <span>
             <svg
@@ -18,10 +19,10 @@ const RecentVisit = () => {
               <circle cx="7.5" cy="8" r="7.5" fill="#E57C23" />
             </svg>
           </span>
-          سوابق بازدید
+          لیست علاقه مندی ها 
         </h1>
       </div>
-      <div className="recent__visit__body mt-4 flex gap-2 ">
+      <div className=" sm:row-span-12 auto-rows-auto row-span-7 recent__visit__body mt-4 flex gap-2 ">
         <CardProduct />
         <CardProduct />
         <CardProduct />
@@ -29,7 +30,8 @@ const RecentVisit = () => {
         <CardProduct />
       </div>
     </>
-  );
-};
+    )
+}
 
-export default RecentVisit;
+
+export default Interest  ;

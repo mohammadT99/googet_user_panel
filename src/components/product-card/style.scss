@@ -5,17 +5,19 @@
     align-items: center;
     justify-content: center;
     border: 1px solid var(--border-2);
-    max-width: max-content;
+    max-width: 350px;
     padding: 14px  ;
     border-radius: 10px;
     background: var(--withe);
     transition: all 0.4s ease;
+    width: 100%;
+    
    
     .card__img {
         width:150px;
     }
     .card__title {
-        width: 250px;
+        // width: 250px;
         text-align: center;
     }
 }
