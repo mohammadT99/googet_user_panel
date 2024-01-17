@@ -1,9 +1,11 @@
 import React from "react";
 import CardComment from "../../components/comment-cards";
+import Breadcumbs from "../../components/bradcrumbs";
 
 const Comments = () => {
   return (
     <>
+    <Breadcumbs bradcrumb="دیدگاه ها" active="active-bread"/>
       <div className="comment__header">
         <h1 className="flex items-center gap-2 text-lg font-semibold  ">
           <span>

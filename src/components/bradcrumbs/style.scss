@@ -3,11 +3,10 @@
     display: flex;
     height: 30px;
     align-items: center;
+   
 }
-
-.active-brad {
-    // color: var(--primary);
-    span {
-        display: none;
-    }
+.active-bread {
+    color: var(--primary);
+    font-weight: 600;
+  
 }

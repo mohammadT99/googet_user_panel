@@ -1,10 +1,12 @@
 import React from "react";
 import CardProduct from "../../components/product-card";
 import './style.scss'
+import Breadcumbs from "../../components/bradcrumbs";
 
 const RecentVisit = () => {
   return (
     <>
+    <Breadcumbs bradcrumb=" سوابق بازدید" active="active-bread"/>
       <div className="recent__visit__content">
         <h1 className="flex items-center gap-3 text-lg font-semibold">
           <span>

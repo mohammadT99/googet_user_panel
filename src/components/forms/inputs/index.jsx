@@ -27,6 +27,7 @@ const Input = ({
           placeholder={placeholder}
           onChange={onChange}
           value={value}
+          {...register(label)}
         />
       </div>
     </>

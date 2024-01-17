@@ -1,11 +1,13 @@
 import React from "react"; 
 import './style.scss'
 import CardProduct from "../../components/product-card";
+import Breadcumbs from "../../components/bradcrumbs";
 
 
 const Interest  = () => {
     return (
         <>  
+        <Breadcumbs bradcrumb=" علاقه مندی ها" active="active-bread"/>
         <div className="recent__visit__content">
         <h1 className="flex items-center gap-3 text-lg font-semibold">
           <span>

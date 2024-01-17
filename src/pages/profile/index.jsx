@@ -7,6 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
 import { ToastContainer } from "react-toastify";
 import Input from "../../components/forms/inputs";
+import { useDispatch } from "react-redux";
+import { checkUser } from "../../store/auth";
+import Breadcumbs from "../../components/bradcrumbs";
 
 const Profile = () => {
   // state
@@ -15,6 +18,7 @@ const Profile = () => {
   const [updateImage, setUpdateImage] = useState([]);
   const [lodading, setLoading] = useState(false);
   const [loadingbtn, setLoadingbtn] = useState(false);
+  const dispatch = useDispatch()
   const [update, setUpdate] = useState({
     name: userData.name,
     mobile: userData.mobile,
@@ -26,8 +30,8 @@ const Profile = () => {
 
 
 
-  var token = JSON.parse(Cookies.get("user"));
-  token = token.user;
+  // var token = JSON.parse(Cookies.get("user"));
+  // token = token.user;
 
 
   // function  update data user 
@@ -70,10 +74,9 @@ const Profile = () => {
     setUpdate({
       avatar: image,
     });
-    setUpdateImage(e.target.files);
+    
     console.log("ssss", updateImage);
     if (image) {
-      console.log("omid", { avatar: e.target.files[0], type: "set" });
       const { data } = await Api.post(
         "profile/avatar",
         { avatar: e.target.files[0], type: "set" },
@@ -83,8 +86,9 @@ const Profile = () => {
           },
         }
       );
+      user()
     }
-    handleUpdate();
+    
   };
 
 //  function update  password  
@@ -101,6 +105,7 @@ const Profile = () => {
   console.log("sdjskd", update);
   //   use efect
   useEffect(() => {
+    dispatch(checkUser());
     user();
   }, []);
   return (
@@ -119,6 +124,7 @@ const Profile = () => {
       />
       {/* Same as */}
       <ToastContainer />
+      <Breadcumbs bradcrumb="پروفایل" active="active-bread"/>
       {lodading ? (
         <div className="Profile__content">
           <h1 className="flex  items-center gap-1.5">

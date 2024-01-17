@@ -7,6 +7,7 @@ import { Check } from "iconsax-react";
 import { data } from "autoprefixer";
 import { loginUser } from "../../../../store/user";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
  export  function useLogin (props) {
     const dispatch = useDispatch();
@@ -16,6 +17,8 @@ import Cookies from "js-cookie";
     const [ inputData , setinputData] = useState([]);
     const [codeLogin  , setCodeLogin ] = useState('')
     const mobile = localStorage.getItem('code')
+    const [err , setErr ] =  useState('');
+    const [passerr , setPasserr] = useState(null)
     const loginData = async (input ) => {
         console.log('fdfdfdf')
         setinputData(input)
@@ -26,6 +29,7 @@ import Cookies from "js-cookie";
             console.log(data.code)
             setCodeLogin(data.code)
             navigate(data.redirect)
+           
         }catch(e) {
             console.log(e);
         }
@@ -52,18 +56,25 @@ import Cookies from "js-cookie";
     }
 
     const password =  async(password) => {
+        const _user = Cookies.get("user")
         try {
             const {data} = await Api.post('/check' , {
                 mobile :JSON.parse(mobile) ,
                 password : password,
                 type  : 'password'
             })
+            console.log('datas-------------->>' , data)
             dispatch(loginUser(data));
             if(Cookies.get('user')) {
                 navigate('/')
+            } else if(_user.token) {
+                navigate('/')
+            }else{
+                location.replace('/login')
             }
         }catch(e) {
-            console.log(e)
+            toast.error(e.response.data.errors.password)
+            setPasserr(e.response.data.errors.password)
         }
     }
    return {
@@ -71,7 +82,8 @@ import Cookies from "js-cookie";
     loginData ,
     check,
     inputData,
-    password
+    password,
+    passerr
 
 
    }
