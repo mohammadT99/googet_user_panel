@@ -22,12 +22,12 @@ const Input = ({
         </label>
         <input
           type="text"
-          className={`input-form ${otherClass}`}
+          className={`input-form`}
           name={name}
           placeholder={placeholder}
-          onChange={onChange}
+          // onChange={onChange}
           value={value}
-          {...register(label)}
+          // {...register(label)}
         />
       </div>
     </>

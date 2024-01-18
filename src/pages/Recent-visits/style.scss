@@ -85,7 +85,19 @@
         
         margin-right: auto;
         margin-left: auto;
+      
+        
     }
+
+    .header-filter {
+        display: flex;
+        flex-direction:column !important;
+    }
+    .input-filter {
+        // width: 250px;
+        // margin-right: -;
+    }
+    
 }
 
 
