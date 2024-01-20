@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"; 
-import './style.scss'
+import React, { useEffect, useState } from "react";
+import "./style.scss";
 import CardProduct from "../../components/product-card";
 import Breadcumbs from "../../components/bradcrumbs";
 import Filter from "../../components/filter";
@@ -11,36 +11,40 @@ import image3 from "../../assets/image/b3d660fd6a3946de6f822dc28455af8a9e22cd67_
 import image4 from "../../assets/image/7841ddef0065fde2ddb88edd8757dfc62a10c52e_1689779953.webp";
 import Api from "../../libs/axios";
 import { ToastContainer, toast } from "react-toastify";
-import { useDebouncedCallback } from "use-debounce";
+import { useDebounce, useDebouncedCallback } from "use-debounce";
 
-
-const Interest  = () => {
-  const [searchParam , setSerchParam ] = useSearchParams();
-  const [input , setInput ] = useState('')
-    const filterPage = () => {
-      console.log('sdsdsd')
-      try{
-        const {data} = Api.get(`/auth/?${searchParam.get('filter')}`) ;
-        console.log('mohhamdasdsd666',data)
-      } catch(e) {
-        console.log( 'moahhad----->>>>gfg', e)
-        toast.error('notapi' , e)
-      }
+const Interest = () => {
+  const [searchParam, setSerchParam] = useSearchParams();
+  const [input, setInput] = useState("");
+  const filterPage = () => {
+    console.log("sdsdsd");
+    try {
+      const { data } = Api.get(`/auth/?${searchParam.get("filter")}`);
+      console.log("mohhamdasdsd666", data);
+    } catch (e) {
+      console.log("moahhad----->>>>gfg", e);
+      toast.error("notapi", e);
     }
+  };
 
-    // const handleSerch = useDebouncedCallback((e)=>{
-    // console.log('text')
-    // setInput(e.target.value)
-    // setSerchParam({search:input})
-    // } ,1000) ;
-    
+  const debonse = useDebouncedCallback(() => {
+    setSerchParam({
+      search : input
+    })
+  } , 1000) 
 
-    useEffect(() => {
-      filterPage()
-    } , [searchParam.get('filter')])
-    return (
-        <>  
-         <ToastContainer
+  const handleSerch =(e) => {
+    console.log("text");
+    setInput(e.target.value);
+    debonse()
+  };
+
+  useEffect(() => {
+    filterPage();
+  }, [searchParam.get("filter")]);
+  return (
+    <>
+      <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -54,8 +58,8 @@ const Interest  = () => {
       />
       {/* Same as */}
       <ToastContainer />
-        <Breadcumbs bradcrumb=" علاقه مندی ها" active="active-bread"/>
-        <div className="recent__visit__content gap-x-20 items-center mb-3">
+      <Breadcumbs bradcrumb=" علاقه مندی ها" active="active-bread" />
+      <div className="recent__visit__content gap-x-20 items-center mb-3">
         <h1 className="flex items-center gap-3 text-lg font-semibold">
           <span>
             <svg
@@ -68,15 +72,19 @@ const Interest  = () => {
               <circle cx="7.5" cy="8" r="7.5" fill="#E57C23" />
             </svg>
           </span>
-          لیست علاقه مندی ها 
+          لیست علاقه مندی ها
         </h1>
         <div className="  header-filter sm:flex-col md:flex-row hesder flex flex-row justify-between  ">
-        <Filter />
-        <input className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"  placeholder="جستجو" onChange={handleSerch} />
+          <Filter />
+          <input
+            className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"
+            placeholder="جستجو"
+            onChange={handleSerch}
+          />
         </div>
       </div>
       <div className=" sm:row-span-12 auto-rows-auto row-span-7 recent__visit__body mt-4 flex gap-2 ">
-          <CardProduct
+        <CardProduct
           title="لپ تاپ 16 اینچی ایسوس مدل ROG Strix G16 G614JV-AS73 "
           price="۳۱,۴۹۹,۰۰۰"
           image={image1}
@@ -89,14 +97,17 @@ const Interest  = () => {
         <CardProduct
           title="گوشی موبایل ناتینگ مدل Phone 2 دو سیم کارت ظرفیت 256 گیگابایت و رم 12 گیگابایت"
           price="۳۱,۴۹۹,۰۰۰"
-          image={image3 }
+          image={image3}
         />
-        <CardProduct title="کیس کامپیوتر کوگر مدل CONQUER 2" price="۱۸,۳۷۰,۰۰۰" image={image4} />
+        <CardProduct
+          title="کیس کامپیوتر کوگر مدل CONQUER 2"
+          price="۱۸,۳۷۰,۰۰۰"
+          image={image4}
+        />
         <CardProduct />
       </div>
     </>
-    )
-}
+  );
+};
 
-
-export default Interest  ;
+export default Interest;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardProduct from "../../components/product-card";
 import "./style.scss";
 import Breadcumbs from "../../components/bradcrumbs";
@@ -8,7 +8,30 @@ import image2 from "../../assets/image/58310e6f1f7829712ac07237cf5eddbcc24b6288_
 
 import image3 from "../../assets/image/b3d660fd6a3946de6f822dc28455af8a9e22cd67_1691477390.webp";
 import image4 from "../../assets/image/7841ddef0065fde2ddb88edd8757dfc62a10c52e_1689779953.webp";
-const RecentVisit = () => {
+import { useDebouncedCallback } from "use-debounce";
+import { useSearchParams } from "react-router-dom";
+const RecentVisit = () => { 
+/* 
+| state form this components
+| ================ stateset ========== //
+|
+*/
+const[input , setInput ] = useState('')
+const [ serchParam , setSerchParam ] = useSearchParams() ;
+  const debonse = useDebouncedCallback(() => {
+    setSerchParam({
+      search : input
+    })
+  } , 1000) 
+
+  const handleSerch =(e) => {
+    console.log("text");
+    setInput(e.target.value);
+    debonse()
+  };
+
+
+
   return (
     <>
       <Breadcumbs bradcrumb=" سوابق بازدید" active="active-bread" />
@@ -29,7 +52,7 @@ const RecentVisit = () => {
         </h1>
         <div className=" header-filter sm:flex-col md:flex-row  flex flex-row justify-between  ">
         <Filter />
-        <input className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"  placeholder="جستجو" />
+        <input className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"  placeholder="جستجو" onChange={handleSerch} />
         </div>
       </div>
       <div className="recent__visit__body mt-4 flex gap-2 ">
