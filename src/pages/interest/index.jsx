@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; 
+import React, { useEffect, useState } from "react"; 
 import './style.scss'
 import CardProduct from "../../components/product-card";
 import Breadcumbs from "../../components/bradcrumbs";
@@ -11,10 +11,12 @@ import image3 from "../../assets/image/b3d660fd6a3946de6f822dc28455af8a9e22cd67_
 import image4 from "../../assets/image/7841ddef0065fde2ddb88edd8757dfc62a10c52e_1689779953.webp";
 import Api from "../../libs/axios";
 import { ToastContainer, toast } from "react-toastify";
+import { useDebouncedCallback } from "use-debounce";
 
 
 const Interest  = () => {
-  const [searchParam] = useSearchParams();
+  const [searchParam , setSerchParam ] = useSearchParams();
+  const [input , setInput ] = useState('')
     const filterPage = () => {
       console.log('sdsdsd')
       try{
@@ -25,6 +27,13 @@ const Interest  = () => {
         toast.error('notapi' , e)
       }
     }
+
+    // const handleSerch = useDebouncedCallback((e)=>{
+    // console.log('text')
+    // setInput(e.target.value)
+    // setSerchParam({search:input})
+    // } ,1000) ;
+    
 
     useEffect(() => {
       filterPage()
@@ -63,7 +72,7 @@ const Interest  = () => {
         </h1>
         <div className="  header-filter sm:flex-col md:flex-row hesder flex flex-row justify-between  ">
         <Filter />
-        <input className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"  placeholder="جستجو" />
+        <input className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"  placeholder="جستجو" onChange={handleSerch} />
         </div>
       </div>
       <div className=" sm:row-span-12 auto-rows-auto row-span-7 recent__visit__body mt-4 flex gap-2 ">
