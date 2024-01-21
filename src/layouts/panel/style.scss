@@ -22,9 +22,21 @@
   .pannel__content__body {
     background-color: var(--bg);
     padding: 20px;
+    margin-top: 20px!important;
     border-radius: 10px;
    
   }
+}
+
+@media only  screen  and (max-width: 900px ){
+    .pannel__content {
+      margin-right: -12px;
+      width: 270px;
+      //padding: 6px;
+      .pannel__content__body {
+        padding: 6px;
+      }
+    }
 }
 
 

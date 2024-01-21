@@ -69,22 +69,10 @@
     width: 100%;
     margin-right: 10px;
     .title  {
-        display: none;
+        display: flex;
     }
-    &:hover {
-        .tooltiptext {
-            // transition: all 0.5s;
-            // transform: rotateX(20px);
-            position:absolute;
-            right: 80px;
-            visibility:visible ;
-            display: block;
-            padding: 3px 8px;
-            border-radius: 10px;
-            background-color: var(--primary-muted);
-            // color: var(--primary);
-        }
-    }
+
+
    
 
     .sidebar__icon {
@@ -97,11 +85,32 @@
     
       &:hover {
         // color: var(--withe);
-        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
-        border-right: 2px solid var(--primary);
-        background-color: var(--withe);
-        padding: 10px;
+        //box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+        //border-right: 2px solid var(--primary);
+        //background-color: var(--withe);
+        //padding: 10px;
       }
     }
+  }
+}
+
+
+
+@media only  screen and (max-width: 320px){
+  .item {
+    &.active{
+      display: flex;
+      justify-content: flex-start !important;
+      margin-right: 0px !important;
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+      border-right: 2px solid var(--primary);
+      background-color: var(--withe);
+      border-radius: 10px;
+      padding: 4px 0px 4px 100px;
+      //width: 100%;
+    }
+  }
+  .sidebar__item {
+
   }
 }

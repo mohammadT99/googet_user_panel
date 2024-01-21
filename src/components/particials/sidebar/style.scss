@@ -1,3 +1,8 @@
+.main{
+    position: relative;
+    transition: all 0.5s ease;
+}
+
 .sidebar {
     // margin-top: 20px;
     // margin-bottom: 20px;
@@ -45,7 +50,7 @@
         margin-left: auto;
         margin-right: auto;
         gap: 20px;
-       
+
     }
 }
 
@@ -57,32 +62,57 @@
 //  ========================================   responsive  ================= //
 
 
-@media only screen  and (max-width:990px) {
+@media only screen  and (max-width:768px) {
     .sidebar {
+        //position: absolute;
+        //display: none   ;
         // padding: 10px !important;
-        width: 70px !important;
-        display: flex;
+        width: 275px !important;
+
+        animation: sidebar 0.4s ease;
+        @keyframes sidebar {
+            0% {
+                opacity: 0;
+                right: -20px;
+            }
+            to {
+                opacity: 100%;
+                right: 20px;
+            }
+
+        }
+
+        position: absolute;
+        z-index: 10;
+        top: -12px !important;
+        //left: 50px;
+        right: 10px ;
+
+        display: none;
         align-items: center;
         // justify-content: center;
-        height:100vh;
+        height:85vh;
         overflow: hidden;
     }
     .sidebar__content {
         display: none;
     }
+
     .sidebar__content__min {
-        margin-top: 60px;
+        margin-top: 20px;
+        width: 275px !important;
         display:flex ;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
         margin-left: auto;
         margin-right: auto;
         gap: 20px;
-       
+
     }
 
     .sidebar__logout {
+        margin-top: 10px !important;
         margin-left: auto;
         margin-right: auto;
         h1 {
@@ -91,37 +121,87 @@
     }
 }
 
-@media only screen and (max-width:760px) {
 
+
+
+
+
+@media only screen and (max-width:760px) {
+    .main {
+        margin-right: -15px;
+    }
     .sidebar {
-        // padding: 10px !important;
-        width: 70px !important;
-        display: flex;
-        align-items: center;
-        // justify-content: center;
-        height:100vh;
+         padding: 10px !important;
+        //transform: translateX(275px);
+        width: 275px !important;
+        //display: flex;
+        //width: 100%;
+        animation: sidebar 0.4s ease;
+        @keyframes sidebar {
+            0% {
+                opacity: 0;
+                right: -20px;
+            }
+            to {
+                opacity: 100%;
+                right: 20px;
+            }
+
+        }
+        transition: all 0.3s ease !important;
+        box-shadow: -1px -1px 30px 2px var(--light-4);
+        right: 20px;
+        top: -12px !important;
+        display: none;
+        align-items: flex-start;
+         justify-content: flex-start;
+        height:85vh;
         overflow: hidden;
     }
     .sidebar__content {
-        display: none;
+        display:none;
+
     }
     .sidebar__content__min {
-        margin-top: 60px;
+        margin-top: 20px;
         display:flex ;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        gap: 20px;
-       
+        align-items: flex-start;
+        justify-content: flex-start;
+        //margin-left: auto;
+        margin-right: 30px;
+        gap: 14px;
+
     }
 
     .sidebar__logout {
-        margin-left: auto;
-        margin-right: auto;
+        margin-top: 20px !important;
+        //margin-left: auto;
+        //margin-right: auto;
+        margin-right: 35px;
         h1 {
-            display: none;
+            display: flex;
         }
+    }
+
+    .sidebar__icon__responsive {
+        display: flex;
+        //justify-content: center;
+        //margin-left: 10px;
+        //margin-right: 20px;
+        justify-content: flex-end;
+        margin-top: 20px;
+
+    }
+
+    .sidebar__icon__responsive__side {
+        padding: 10px;
+    transform: rotate(180deg);
+    }
+
+    .open{
+       .sidebar{
+           display: flex;
+       }
     }
 }

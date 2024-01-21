@@ -29,9 +29,6 @@ const [ serchParam , setSerchParam ] = useSearchParams() ;
     setInput(e.target.value);
     debonse()
   };
-
-
-
   return (
     <>
       <Breadcumbs bradcrumb=" سوابق بازدید" active="active-bread" />

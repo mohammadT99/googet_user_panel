@@ -38,7 +38,7 @@ const Profile = () => {
   const user = async () => {
     try {
       const { data } = await Api.get("profile");
-      setLoading(true);
+      // setLoading(false);
       setUserData({
         mobile: data.data.mobile,
         email: data.data.email,
@@ -125,8 +125,8 @@ const Profile = () => {
       {/* Same as */}
       <ToastContainer />
       <Breadcumbs bradcrumb="پروفایل" active="active-bread"/>
-      {lodading ? (
-        <div className="Profile__content">
+      {lodading === false ? (
+        <div className="Profile__content sm:flex-col">
           <h1 className="flex  items-center gap-1.5">
             <span>
               <svg
@@ -141,7 +141,7 @@ const Profile = () => {
             </span>
             اطلاعات عمومی
           </h1>
-          <div className="profile__content__forms">
+          <div className="profile__content__forms sm:flex-col">
             <form className="form-control">
               <div className="input">
                 <label className="label-input" htmlFor="input-name">

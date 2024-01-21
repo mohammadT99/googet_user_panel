@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const SidebarItem = ({ type = "sidebar__navlink", title = "", key = "", icon , link ,  activate }) => {
   return (
-    <NavLink className={type}  to={link}>
+    <NavLink className={`${type} item`}  to={link}>
       <div className="sidebar__item" key={key + 10}>
         <span className="sidebar__icon">{icon}</span>
         <p className="title">{title}</p>

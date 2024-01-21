@@ -10,18 +10,17 @@ import Cookies from "js-cookie";
 import {websocket} from "../../store/socket.js";
 import {useDispatch} from "react-redux";
 import {ToastContainer} from "react-toastify";
-import { checkUser } from "../../store/auth.js";
-import { Home } from "iconsax-react";
+import {checkUser} from "../../store/auth.js";
+import {Home, SidebarLeft} from "iconsax-react";
 
 const PanelLayouts = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const searchParam = useSearchParams();
-   
-   
-   
-   
+    const openSiebar = () => {
+
+    }
 
 
     // const user = Cookies.get('user') ;
@@ -43,11 +42,12 @@ const PanelLayouts = () => {
             <Header/>
             <div className="panel">
                 <div className="sidebar-panel">
-                <Sidebar/>
+                    <Sidebar/>
+
                 </div>
-                
+
                 <div className="pannel__content">
-                  
+
                     <div className="pannel__content__body mt-14">
                         <Outlet/>
                     </div>

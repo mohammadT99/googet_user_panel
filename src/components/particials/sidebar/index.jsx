@@ -77,15 +77,15 @@ const Sidebar = ({type = "panel", addClass = ""}) => {
     return (
         <React.Fragment>
             <div className={`main ${type} ${addClass}`}>
-                <div className="sidebar__icon__responsive sm:flex md:hidden lg:hidden" onClick={openSiebar}>
+                <div className="sidebar__icon__responsive sm:flex md:flex lg:hidden" onClick={openSiebar}>
                     <SidebarLeft/>
                 </div>
                 <div className="sidebar  top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center mt-8 " id="sidebar">
-                    <div className="sidebar__icon__responsive sm:flex md:hidden lg:hidden shadow-2xl"
+                    <div className="sidebar__icon__responsive__side sm:flex md:hidden lg:hidden shadow-2xl"
                          onClick={openSiebar}>
                         <SidebarLeft/>
                     </div>
-                    <div className="text-2xl font-medium logo">
+                    <div className="text-2xl font-medium logo sm:flex ">
                         <img src={Logo} alt=""/>
                     </div>
                     <Avatar size="150px" type="user"/>
