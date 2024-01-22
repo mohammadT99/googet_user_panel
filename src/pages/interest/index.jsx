@@ -28,14 +28,16 @@ const Interest = () => {
   };
 
   const debonse = useDebouncedCallback(() => {
-    setSerchParam({
-      search : input
-    })
+    console.log('api------------->>serch')
+
   } , 1000) 
 
   const handleSerch =(e) => {
     console.log("text");
     setInput(e.target.value);
+    setSerchParam({
+      search : input
+    })
     debonse()
   };
 
@@ -75,9 +77,9 @@ const Interest = () => {
           لیست علاقه مندی ها
         </h1>
         <div className="  header-filter sm:flex-col md:flex-row hesder flex flex-row justify-between  ">
-          <Filter />
+
           <input
-            className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"
+            className="input-filter outline-0 h-10 mx-auto mt-2  rounded-lg border border-gray-400 px-3"
             placeholder="جستجو"
             onChange={handleSerch}
           />

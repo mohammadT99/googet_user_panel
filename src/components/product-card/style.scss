@@ -38,3 +38,10 @@
   &:hover {
   }
 }
+
+
+@media only  screen and (max-width: 320px) {
+  .button-card {
+    text-wrap: nowrap;
+  }
+}

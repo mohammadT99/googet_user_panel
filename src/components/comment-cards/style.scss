@@ -202,6 +202,28 @@
 }
 
 
+@media only screen and (max-width:320px) {
+    .card__comments {
+        width: 280px;
+
+        .header__card  {
+            .image__header {
+                right: 270px;
+            }
+        }
+        .buttons__card {
+            left: 240px;
+        }
+        .line {
+            // padding: 1;
+            width: 10px !important;
+            height: 1px;
+            background: var(--border-3);
+        }
+    }
+}
+
+
 
 
 

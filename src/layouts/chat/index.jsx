@@ -140,6 +140,11 @@ const Chat = () => {
       console.log(e);
     }
   };
+
+  const addmenue = () => {
+    // const converlist = 'flex';
+
+  }
   //  =================== use Effect ===============  //
   useEffect(() => {
     conversactionList();
@@ -172,9 +177,9 @@ const Chat = () => {
       <Header />
       <div className="chat">
         <div className="chat__content">
-          <ConversactionList conversaction={conversaction} />
+          <ConversactionList conversaction={conversaction}   />
           <div className="chat__content__body">
-            <ContentChat />
+            <ContentChat onclick={addmenue} />
             <div
               className="chat__content__body__chat"
               id="chat__content__body__chat"

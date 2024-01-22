@@ -27,7 +27,7 @@ const CardProduct = ({title ="گوشی موبایل سامسونگ مدل Galaxy
                     <Trash />
                     </span>
                     حذف</button>
-                    <button className=' flex bg-orange-500 text-white p-3 rounded-md item-center'>
+                    <button className=' button-card flex bg-orange-500 text-white p-3 rounded-md item-center'>
                     <span>
                         <Add />
                     </span>

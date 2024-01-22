@@ -5,11 +5,11 @@ import HeaderChat from "../header";
 import CardChat from "../../../card-chat";
 
 
-const ConversactionList = ({conversaction}) => {
+const ConversactionList = ({conversaction , className}) => {
     const searchParam = useSearchParams()
     // const param =  ;
     return (
-        <div className="chat__content__meassege">
+        <div className={`chat__content__meassege ${className}`}>
             <HeaderChat />
             <div className="chat__content__meassege__filter">
               <button className="btn">همه پیام ها</button>

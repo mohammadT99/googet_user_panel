@@ -1,0 +1,35 @@
+.filter__icon {
+  position: relative;
+}
+
+@media only  screen and (max-width: 320px) {
+  .filter__item {
+    display: none;
+  }
+  .box__filter {
+    transition: all 0.5s ease;
+    display: flex;
+    background: var(--withe);
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    animation: filterBox 0.5s ease;
+    @keyframes  filterBox {
+      0% {
+        top: -10px;
+      }
+      100% {
+        top: 20px;
+      }
+    }
+  }
+}
+
+.close {
+
+  transition: all 10s ease;
+  opacity: 0;
+
+  display: none;
+}
