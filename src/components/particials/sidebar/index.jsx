@@ -11,7 +11,7 @@ import {
   FolderFavorite,
   Clock,
   LogoutCurve,
-  Messages3,
+  Messages3, SidebarLeft,
 } from "iconsax-react";
 // ============== comopnents ========== //
 import Avatar from "../../avatar";
@@ -21,9 +21,6 @@ import { NavLink } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Sidebar = ({ type = "panel" }) => {
-  //state
-  // var _user = JSON.parse(Cookies.get("user"))
-  // _user = _user.user
 
   //functions
   const handleLogOut = () => {
@@ -34,6 +31,15 @@ const Sidebar = ({ type = "panel" }) => {
       console.log("not");
     }
   };
+
+
+  const sidebarMin = () => {
+const sidebarMin = document.getElementById('sidebar')
+    const sidebarButton = document.getElementById('sidebar__icon__min')
+    sidebarMin.classList.toggle('flex-sidebar') ;
+    sidebarButton.classList.toggle('sidebar__boutton__close')
+    console.log('ghghg' , sidebarMin)
+  }
   // console.log(_user);
   const sidebarItem = [
     {
@@ -71,7 +77,10 @@ const Sidebar = ({ type = "panel" }) => {
   return (
     <React.Fragment>
       <div className={`main ${type}`}>
-        <div className="sidebar  top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center mt-8 ">
+        <span className='sidebar__boutton' onClick={sidebarMin} id="sidebar__icon__min">
+          <SidebarLeft />
+        </span>
+        <div className="sidebar  top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center mt-8 " id='sidebar'>
           <div className="text-2xl font-medium logo">
             <img src={Logo} alt="" />
           </div>

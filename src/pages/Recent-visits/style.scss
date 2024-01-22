@@ -93,11 +93,15 @@
         display: flex;
         flex-direction:column !important;
     }
-    .input-filter {
-        // width: 250px;
-        // margin-right: -;
-    }
+
     
 }
 
+
+@media only  screen and (max-width: 320px) {
+    .input-filter {
+        width: 200px;
+        // margin-right: -;
+    }
+}
 

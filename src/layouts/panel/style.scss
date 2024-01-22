@@ -27,4 +27,21 @@
   }
 }
 
+@media only screen and (max-width: 320px) {
+    .panel{
+      display: flex;
+      gap: -12px;
+    }
+
+  .pannel__content {
+
+    margin-right: -25px !important;
+    width: 95% !important;
+  }
+  .pannel__content__body {
+    margin-right: -10px;
+    padding: 10px !important;
+  }
+}
+
 

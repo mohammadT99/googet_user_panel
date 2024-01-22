@@ -93,6 +93,46 @@
 }
 
 
-// @media only  screen and(max-width:) {
-    
-// }
+ @media only  screen and (max-width:320px ) {
+     .profile__content__forms {
+         margin-top: 20px;
+         display: flex;
+         flex-direction: column;
+         padding:30px;
+         border: 1px solid var(--light-3);
+         background-color:white;
+         justify-content: flex-start;
+         align-items: center;
+         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.20);
+         border-radius: 10px;
+         gap: 20px;
+     }
+
+
+     .input {
+         position: relative;
+         //background:var(--withe) ;
+         .label-input {
+             position:absolute;
+             top: -12px;
+             right: 20px;
+             padding: 0px 8px;
+             background: var(--withe);
+         }
+         .input-form {
+             outline:0;
+             border: 1px solid var(--light-text);
+             border-radius: 10px;
+             padding: 10px 30px;
+             width: 270px;
+
+             &:focus {
+                 border: 1px solid var(--primary);
+             }
+
+         }
+         .email {
+             width: 270px !important;
+         }
+     }
+ }

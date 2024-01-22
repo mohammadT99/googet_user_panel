@@ -68,24 +68,13 @@
     align-items: center;
     width: 100%;
     margin-right: 10px;
+
     .title  {
-        display: none;
+        display: flex;
     }
-    &:hover {
-        .tooltiptext {
-            // transition: all 0.5s;
-            // transform: rotateX(20px);
-            position:absolute;
-            right: 80px;
-            visibility:visible ;
-            display: block;
-            padding: 3px 8px;
-            border-radius: 10px;
-            background-color: var(--primary-muted);
-            // color: var(--primary);
-        }
-    }
-   
+
+
+
 
     .sidebar__icon {
       margin-left: auto;
@@ -93,15 +82,16 @@
       padding: 6px;
       border-radius: 10px;
       transition: all 0.4s ease;
-     
-    
-      &:hover {
-        // color: var(--withe);
-        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
-        border-right: 2px solid var(--primary);
-        background-color: var(--withe);
-        padding: 10px;
-      }
+    }
+  }
+  .sideabar_min {
+    &.active{
+      color: var(--primary);
+      background-color: var(--withe);
+      box-shadow: 0px 1px 4px 0px rgba(161, 115, 115, 0.25);
+      border-right: 2px solid var(--primary);
+      padding-left: 50px;
+      border-radius: 10px;
     }
   }
 }

@@ -19,18 +19,17 @@ const RecentVisit = () => {
 const[input , setInput ] = useState('')
 const [ serchParam , setSerchParam ] = useSearchParams() ;
   const debonse = useDebouncedCallback(() => {
-    setSerchParam({
-      search : input
-    })
+    console.log('api ------------------>>>')
   } , 1000) 
 
   const handleSerch =(e) => {
     console.log("text");
     setInput(e.target.value);
+    setSerchParam({
+      search : input
+    })
     debonse()
   };
-
-
 
   return (
     <>
@@ -51,8 +50,8 @@ const [ serchParam , setSerchParam ] = useSearchParams() ;
           سوابق بازدید
         </h1>
         <div className=" header-filter sm:flex-col md:flex-row  flex flex-row justify-between  ">
-        <Filter />
-        <input className="input-filter outline-0 h-10 mx-16  rounded-lg border border-gray-400 px-3"  placeholder="جستجو" onChange={handleSerch} />
+
+        <input className="input-filter outline-0 h-10 mx-auto  mt-3 rounded-lg border border-gray-400 px-3"  placeholder="جستجو" onChange={handleSerch} />
         </div>
       </div>
       <div className="recent__visit__body mt-4 flex gap-2 ">
