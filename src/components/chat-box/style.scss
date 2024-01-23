@@ -167,7 +167,7 @@
 
 @media only screen and (max-width: 957px) {
   .chat__content__meassege {
-    display: none;
+    display: block;
   }
 
   .content__body {
@@ -190,12 +190,22 @@
 @media only screen and (max-width: 350px) {
   .content__body {
     width: 170px;
+    height: 45px;
+    .text_box {
+      padding: 6px;
+      justify-content: center;
+    }
   }
 }
 //width :320px
 @media only screen and (max-width: 320px) {
   .content__body {
     width: 168px;
+    height: 45px;
+    .text_box {
+      padding: 6px;
+      justify-content: center;
+    }
   }
 }
 // width :300px

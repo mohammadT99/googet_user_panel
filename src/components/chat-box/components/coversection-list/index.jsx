@@ -3,11 +3,18 @@ import React from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import HeaderChat from "../header";
 import CardChat from "../../../card-chat";
+import './style.scss' ;
 
 
 const ConversactionList = ({conversaction , className}) => {
     const searchParam = useSearchParams()
     // const param =  ;
+
+    const handeleresponsive = () => {
+        if(window.innerWidth  === 320) {
+            console.log('yes')
+        }
+    }
     return (
         <div className={`chat__content__meassege ${className}`}>
             <HeaderChat />
@@ -36,6 +43,7 @@ const ConversactionList = ({conversaction , className}) => {
                         title={item.shop_name}
                         message={item.last_message}
                         id={item.c_key}
+                        onClick={handeleresponsive}
                       />
                     </div>
                   );

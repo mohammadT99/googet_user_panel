@@ -1,0 +1,30 @@
+// style responsieve chat  ///
+
+
+
+@media only screen and (min-width: 375px) {
+  .chat__content__meassege {
+    //margin-inline: auto !important;
+    //margin-right: 20px;
+    display: flex !important;
+    flex-direction: column;
+    width: 375px !important;
+    height: 100vh;
+  }
+
+  .chat__content__meassege__filter {
+    gap: 8px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .chat__content__meassege {
+    display: flex !important;
+    flex-direction: column;
+    width: 320px !important;
+  }
+
+  .chat__content__meassege__filter {
+    gap: 8px;
+  }
+}

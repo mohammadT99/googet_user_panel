@@ -51,7 +51,7 @@ const [ serchParam , setSerchParam ] = useSearchParams() ;
         </h1>
         <div className=" header-filter sm:flex-col md:flex-row  flex flex-row justify-between  ">
 
-        <input className="input-filter outline-0 h-10 mx-auto  mt-3 rounded-lg border border-gray-400 px-3"  placeholder="جستجو" onChange={handleSerch} />
+        <input className="input-filter outline-0 h-10 mx-20 mt-3 rounded-lg border border-gray-400 px-3"  placeholder="جستجو" onChange={handleSerch} />
         </div>
       </div>
       <div className="recent__visit__body mt-4 flex gap-2 ">

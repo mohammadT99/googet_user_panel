@@ -188,7 +188,7 @@
 
 @media only screen and (max-width:450px) {
     .card__comments {
-        width: 280px;
+        width: 340px !important ;
 
         .header__card  {
             .image__header {
@@ -200,19 +200,39 @@
         }
     }
 }
+@media only screen and (max-width:375px) {
+    .card__comments {
+        width: 320px !important;
+
+        .header__card  {
+            .image__header {
+                right: 240px !important;
+            }
+        }
+        .buttons__card {
+            left: 230px !important;
+        }
+        .line {
+            // padding: 1;
+            //width: 20px !important ;
+            height: 1px;
+            background: var(--border-3);
+        }
+    }
+}
 
 
 @media only screen and (max-width:320px) {
     .card__comments {
-        width: 280px;
+        width: 280px !important;
 
         .header__card  {
             .image__header {
-                right: 270px;
+                right: 270px !important;
             }
         }
         .buttons__card {
-            left: 240px;
+            left: 240px !important;
         }
         .line {
             // padding: 1;

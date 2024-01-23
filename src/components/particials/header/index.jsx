@@ -36,10 +36,10 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <div className="resonsive__menue">
-        <HambergerMenu />
-        </div>
-        <img className="logo" src={logo} width={70} alt="" />
+          <div className="resonsive__menue">
+              <img className="logo flex" src={logo} width={70} alt=""/>
+          </div>
+          <img className="logo" src={logo} width={70} alt="" />
 
            <div className="navbar__header">
         <SearchForm />

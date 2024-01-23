@@ -1,6 +1,4 @@
-.main  {
-    position: relative;
-}
+
 
 .sidebar {
     // margin-top: 20px;
@@ -66,60 +64,28 @@
 
 //  ========================================   responsive  ================= //
 
+@media only screen and (min-width: 900px ) {
 
-@media only screen  and (max-width:990px) {
-    .sidebar {
-        // padding: 10px !important;
-        width: 70px !important;
-        display: flex;
-        align-items: center;
-        // justify-content: center;
-        height:100vh;
-        overflow: hidden;
-    }
-    .sidebar__content {
-        display: none;
-    }
-    .sidebar__content__min {
-        margin-top: 60px;
-        display:flex ;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        gap: 20px;
-       
-    }
-
-    .sidebar__logout {
-        margin-left: auto;
-        margin-right: auto;
-        h1 {
-            display: none;
-        }
-    }
-}
-
-
-
-@media only screen and (max-width: 900px ) {
     .sidebar__boutton{
-        display: flex;
+        display: none !important;
         position: absolute;
         right: 450px;
         transition: all 0.5s ease;
     }
     .sidebar {
-        z-index: 10;
-        position: absolute;
+        //z-index: 10;
+        position: static !important ;
         width:270px !important;
-        display: none ;
+        display: flex !important ;
         align-items: flex-start ;
         height:100vh;
-        top: 20px !important ;
+        //top: 20px  ;
         overflow: hidden;
-        animation: sidebar-item 12s ease !important;
+        margin-left: 20px;
+        .sidebar__content {
+            display: flex;
+        }
+
 
         @keyframes sidebar-item   {
             100%{
@@ -129,6 +95,168 @@
                 right: -10px;
             }
         }
+    }
+    .sidebar__boutton__close {
+        transition: all 0.5s ease !important;
+        transform: rotate(180deg);
+    }
+    .sidebar__content__min {
+        display: none !important;
+
+    }
+
+    .sidebar__logout {
+        margin-left: auto;
+        margin-right: auto;
+        h1 {
+            display: flex;
+        }
+    }
+}
+@media only screen and (min-width:768px ) {
+    .sidebar__boutton{
+        display: flex;
+        position: absolute;
+        right:700px !important ;
+        transition: all 0.5s ease;
+    }
+    .sidebar {
+        z-index: 10;
+        position: absolute;
+        width:280px !important;
+        display: none ;
+        align-items: flex-start ;
+        height:100vh;
+        top: 20px  ;
+        overflow: hidden;
+
+
+        @keyframes sidebar-item   {
+            100%{
+                right: 30px;
+            }
+            0% {
+                right: 0px;
+            }
+        }
+    }
+    .sidebar__content {
+        display: none;
+    }
+
+
+
+
+    .sidebar__boutton__close {
+        transition: all 0.5s ease !important;
+        transform: rotate(180deg);
+    }
+    .sidebar__content__min {
+        margin-top: 30px;
+        display:flex ;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 12px;
+
+    }
+
+    .sidebar__logout {
+        margin-left: auto;
+        margin-right: auto;
+        h1 {
+            display: flex;
+        }
+    }
+}
+@media only screen and (min-width:425px ) {
+    .sidebar__boutton{
+        display: flex;
+        position: absolute;
+        right:380px    ;
+        transition: all 0.5s ease;
+    }
+    .sidebar {
+        z-index: 10;
+        position: absolute;
+        width:280px !important;
+        display: none ;
+        align-items: flex-start ;
+        height:100vh;
+        top: 20px  ;
+        overflow: hidden;
+
+
+        @keyframes sidebar-item   {
+            100%{
+                right: 30px;
+            }
+            0% {
+                right: 0px;
+            }
+        }
+    }
+
+
+    .sidebar__content {
+        display: none ;
+    }
+
+    .sidebar__boutton__close {
+        transition: all 0.5s ease !important;
+        transform: rotate(180deg);
+    }
+    .sidebar__content__min {
+        margin-top: 30px;
+        display:flex ;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 12px;
+
+    }
+
+    .sidebar__logout {
+        margin-left: auto;
+        margin-right: auto;
+        h1 {
+            display: flex;
+        }
+    }
+}
+@media only screen and (min-width:375px ) {
+    .sidebar__boutton{
+        display: flex;
+        position: absolute;
+        right:340px ;
+        transition: all 0.5s ease;
+    }
+    .sidebar {
+        z-index: 10;
+        position: absolute;
+        width:280px ;
+        display: none ;
+        align-items: flex-start ;
+        height:100vh;
+        top: 20px  ;
+        overflow: hidden;
+
+        @keyframes sidebar-item   {
+            100%{
+                right: 30px;
+            }
+            0% {
+                right: 0px;
+            }
+        }
+    }
+
+    .sidebar__content {
+        display: none;
     }
 
     .flex-sidebar {
@@ -172,8 +300,9 @@
 }
 @media only screen and (max-width: 320px ) {
     .sidebar__boutton{
+        display: flex;
         position: absolute;
-        right: 290px;
+        right: 290px ;
         transition: all 0.5s ease;
     }
     .sidebar {
@@ -183,9 +312,9 @@
         display: none ;
         align-items: flex-start ;
         height:100vh;
-        top: 20px !important ;
+        top: 20px  ;
         overflow: hidden;
-        animation: sidebar-item 12s ease !important;
+
 
         @keyframes sidebar-item   {
             100%{
@@ -196,7 +325,9 @@
            }
         }
     }
-
+    .sidebar__content {
+        display: none;
+    }
     .flex-sidebar {
         animation: sidebar 0.5s ease !important;
         display: flex !important;

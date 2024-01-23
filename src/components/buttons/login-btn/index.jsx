@@ -3,14 +3,15 @@
 import { Login } from 'iconsax-react';
 import './style.scss' ;
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const LoginButton = ({  type = '', icon}) => {
     return (
         <>  
-            <button  className={type}>
+            <NavLink  className={type} >
                 <span>{icon}</span>
                 <span>ورود</span>
-            </button>
+            </NavLink>
         </>
     )
 }

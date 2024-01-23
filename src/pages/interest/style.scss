@@ -1,3 +1,11 @@
 .recent__visit__content {
     position: relative;
 }
+
+
+@media only screen and (min-width: 768px) {
+    .recent__visit__content {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}

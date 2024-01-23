@@ -14,3 +14,19 @@
         gap: 5px;
     }
 }
+
+
+@media only screen and (max-width: 320px) {
+    .wallets {
+        position: relative;
+        padding: 3px 8px;
+        .icon-wallet {
+            width: 16px;
+        }
+        .wallets__inventory {
+            display: none;
+            position:absolute;
+
+        }
+    }
+}

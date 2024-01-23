@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border-2);
-  max-width: 350px;
+  max-width: 300px;
+  height: 400px;
   padding: 14px;
   border-radius: 10px;
   background: var(--withe);
@@ -45,3 +46,28 @@
     text-wrap: nowrap;
   }
 }
+
+@media only screen and (min-width: 768px) {
+ .card__product {
+   max-width: 612px ;
+ }
+  .button-card {
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .card__product {
+    max-width: 300px;
+  }
+  .button-card {
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    text-wrap: nowrap;
+  }
+}
+
+

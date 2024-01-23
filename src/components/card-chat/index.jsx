@@ -8,8 +8,8 @@ import React, { useState } from "react";
 import { useQueryParam } from "use-query-params";
 
 const CardChat = ({
-  title,
-  message,
+  title = 'ali' ,
+  message = " yesss" ,
   type = " active",
   time,
   id,
@@ -20,7 +20,7 @@ const CardChat = ({
   };
   return (
     <>
-      <div onClick={addToguery} className="card__chat">
+      <div onClick={addToguery} className="card__chat" {...props}>
         <div className="card__hader">
           <Avatar
             type="avatar_chat"

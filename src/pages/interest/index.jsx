@@ -76,16 +76,16 @@ const Interest = () => {
           </span>
           لیست علاقه مندی ها
         </h1>
-        <div className="  header-filter sm:flex-col md:flex-row hesder flex flex-row justify-between  ">
+        <div className="  header-filter flex justify-end  ">
 
           <input
-            className="input-filter outline-0 h-10 mx-auto mt-2  rounded-lg border border-gray-400 px-3"
+            className="input-filter outline-0 h-10 mx-auto mt-2 mb-2  rounded-lg border border-gray-400 px-3"
             placeholder="جستجو"
             onChange={handleSerch}
           />
         </div>
       </div>
-      <div className=" sm:row-span-12 auto-rows-auto row-span-7 recent__visit__body mt-4 flex gap-2 ">
+      <div className=" sm:row-span-12 md:row-span-6 auto-rows-auto row-span-7 recent__visit__body mt-4 flex gap-2 ">
         <CardProduct
           title="لپ تاپ 16 اینچی ایسوس مدل ROG Strix G16 G614JV-AS73 "
           price="۳۱,۴۹۹,۰۰۰"

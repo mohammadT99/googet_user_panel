@@ -9,7 +9,7 @@ const Wallets = ({inventory= "1,0000"}) => {
     return (
         <> 
             <div className="wallets">
-                <Wallet />
+                <Wallet className='icon-wallet'/>
                 <div className="wallets__inventory">
                     <p>{inventory}</p>
                     <p>ریال</p>

@@ -177,7 +177,7 @@ const Chat = () => {
       <Header />
       <div className="chat">
         <div className="chat__content">
-          <ConversactionList conversaction={conversaction}   />
+          <ConversactionList conversaction={conversaction}    />
           <div className="chat__content__body">
             <ContentChat onclick={addmenue} />
             <div
